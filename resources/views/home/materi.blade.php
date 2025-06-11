@@ -59,37 +59,37 @@
         <div class="row justify-content-center">
             <div class="col-6 col-md-4 col-lg-3 mb-4">
                 <div class="materi-box">
-                    <img src="{{ asset('images/backgroudn2.jpeg') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
+                    <img src="{{ asset('images/OrganPencernaan.png') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
                     <div class="topik-text">MATERI SISTEM PENCERNAAN</div>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3 mb-4">
                 <div class="materi-box">
-                    <img src="{{ asset('images/backgroudn2.jpeg') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
+                    <img src="{{ asset('images/OrganPencernaan.png') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
                     <div class="topik-text">MATERI SISTEM PERNAPASAN</div>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3 mb-4">
                 <div class="materi-box">
-                    <img src="{{ asset('images/backgroudn2.jpeg') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
+                    <img src="{{ asset('images/OrganPencernaan.png') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
                     <div class="topik-text">MATERI SISTEM RANGKA</div>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3 mb-4">
                 <div class="materi-box">
-                    <img src="{{ asset('images/backgroudn2.jpeg') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
+                    <img src="{{ asset('images/OrganPencernaan.png') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
                     <div class="topik-text">MATERI SISTEM REPRODUKSI</div>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3 mb-4">
                 <div class="materi-box">
-                    <img src="{{ asset('images/backgroudn2.jpeg') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
+                    <img src="{{ asset('images/OrganPencernaan.png') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
                     <div class="topik-text">MATERI SISTEM OTOT</div>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3 mb-4">
                 <div class="materi-box">
-                    <img src="{{ asset('images/backgroudn2.jpeg') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
+                    <img src="{{ asset('images/OrganPencernaan.png') }}" alt="Pencernaan" class="img-fluid mb-2" style="max-height: 150px;">
                     <div class="topik-text">MATERI SISTEM SARAF</div>
                 </div>
             </div>
