@@ -27,6 +27,8 @@
     text-align: center;
     transition: 0.3s;
     cursor: pointer;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+
   }
 
   .topik-text {
@@ -44,6 +46,8 @@
     height: 40px;
     transition: 0.3s;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
   }
 
   /* Efek hover animasi saat disentuh */
