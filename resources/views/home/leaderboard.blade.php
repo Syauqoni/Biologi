@@ -65,22 +65,12 @@
                 <div class="col-6 header-cell py-2">SKOR</div>
             </div>
 
-            <div class="score-row">
-                <div>Player 1</div>
-                <div>1500</div>
-            </div>
-            <div class="score-row">
-                <div>Player 2</div>
-                <div>1200</div>
-            </div>
-            <div class="score-row">
-                <div>Player 3</div>
-                <div>1000</div>
-            </div>
-            <div class="score-row">
-                <div>Player 4</div>
-                <div>500</div>
-            </div>
+            @foreach($users as $user)
+                <div class="score-row">
+                    <div>{{ $user->name }}</div>
+                    <div>{{ $user->skor }}</div>
+                </div>
+            @endforeach
         </div>
 
         <a href="/" class="btn back-button mt-4">Kembali Ke Halaman Utama</a>
