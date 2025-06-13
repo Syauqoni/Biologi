@@ -19,16 +19,18 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|unique:users',
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
         User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
+            'name' => $request->name,
+            'username' => $request->username, // ✅ penting!
+            'email' => $request->email,
             'password' => Hash::make($request->password),
-            'skor'     => 0, // default skor saat registrasi
+            'skor' => 0,
         ]);
 
         return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
@@ -44,13 +46,13 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email'    => 'required|email',
+            'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard'); // atau halaman utama aplikasi
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([

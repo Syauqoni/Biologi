@@ -43,3 +43,8 @@ Route::get('/leaderboard', [UserController::class, 'leaderboard'])->name('leader
 
 // Ini adalah komentar satu baris
 Route::get('/materi/{slug}', [MateriController::class, 'show'])->name('materi.show');
+
+Route::get('/dashboard', function () {
+    // Baris ini akan menampilkan file view yang akan kita buat selanjutnya
+    return view('home.beranda'); 
+})->name('dashboard')->middleware('auth');
