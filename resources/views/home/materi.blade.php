@@ -89,9 +89,10 @@
 
     <!-- [BARU] Status Login/User di Pojok Kanan Atas -->
     <div class="auth-container">
-        @guest
-            <a href="#" class="auth-link" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
-            <a href="#" class="auth-link fw-bold" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+       @guest
+            {{-- Tombol ini sekarang mengarah langsung ke Halaman Beranda --}}
+            <a href="{{ url('/') }}" class="auth-link">Login</a>
+            <a href="{{ url('/') }}" class="auth-link fw-bold">Register</a>
         @endguest
         @auth
             <span class="welcome-text d-none d-md-block"><i class="bi bi-person-circle"></i> Halo, {{ Auth::user()->name }}</span>
