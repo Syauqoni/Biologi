@@ -17,15 +17,12 @@ Route::get('/leaderboard', function () {
 });
 
 
-Route::get('/kuis', function () {
-    return view('home.kuis');
-});
-
-// Awal kuis berdasarkan topik slug, akan redirect ke soal pertama (index = 1)
-Route::get('/kuis/{slug}', [KuisController::class, 'mulai'])->name('kuis.show');
-
-// Soal kuis: index menentukan jenis soal (1–5 pilgan, 6–7 drag, 8–10 benar/salah)
+// Rute Kuis
+Route::get('/kuis', [KuisController::class, 'index'])->name('kuis.index'); // <-- INI YANG DIPERBAIKI
+Route::get('/kuis/{slug}', [KuisController::class, 'mulai'])->name('kuis.mulai'); // Mengganti nama route agar lebih jelas
 Route::get('/kuis/{slug}/soal/{index}', [KuisController::class, 'soal'])->name('kuis.soal');
+// Anda mungkin perlu route untuk 'kuis.hasil' di sini
+// Route::get('/kuis/{slug}/hasil', [KuisController::class, 'hasil'])->name('kuis.hasil');
 
 Route::get('/materi', function () {
     return view('home.materi');
@@ -41,8 +38,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/leaderboard', [UserController::class, 'leaderboard'])->name('leaderboard');
 
-// Ini adalah komentar satu baris
+//materi
+Route::get('/materi', [MateriController::class, 'index'])->name('materi.index'); // <-- INI YANG DIPERBAIKI
 Route::get('/materi/{slug}', [MateriController::class, 'show'])->name('materi.show');
+
 
 Route::get('/dashboard', function () {
     // Baris ini akan menampilkan file view yang akan kita buat selanjutnya
