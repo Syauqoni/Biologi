@@ -80,7 +80,7 @@ class SoalDragDropSeeder extends Seeder
              'slug' => 'sistem-rangka',
             'nomor' => 6,
             'pertanyaan' => 'Urutan proses penyembuhan tulang patah:',
-            'gambar' => 'SistemRangkaManusia.png',
+            'gambar' => 'TulangPatah.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Terjadi pembengkakan di area patah",
@@ -96,7 +96,7 @@ class SoalDragDropSeeder extends Seeder
             'slug' => 'sistem-rangka',
             'nomor' => 7,
             'pertanyaan' => 'Urutkan susunan bagian sistem rangka tubuh:',
-            'gambar' => 'rangka2.png',
+            'gambar' => 'SistemRangkaManusia.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Tengkorak",
