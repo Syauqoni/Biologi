@@ -60,10 +60,23 @@ Route::get('/dashboard', function () {
 Route::get('/reset-skor', function () {
     if (auth()->check()) {
         $user = auth()->user();
+
+        // Reset semua skor per topik
+        $user->skor_pernapasan = 0;
+        $user->skor_pencernaan = 0;
+        $user->skor_rangka = 0;
+        $user->skor_reproduksi = 0;
+        $user->skor_otot = 0;
+        $user->skor_saraf = 0;
+
+        // Reset skor total
         $user->skor = 0;
         $user->save();
-        return 'Skor pengguna berhasil direset';
+
+        return 'Semua skor pengguna berhasil direset.';
     }
-    return 'Anda belum login';
+
+    return 'Anda belum login.';
 });
+
 

@@ -14,7 +14,7 @@ class SoalDragDropSeeder extends Seeder
             'slug' => 'sistem-pencernaan',
             'nomor' => 6,
             'pertanyaan' => 'Urutkan proses sistem pencernaan makanan:',
-            'gambar' => 'gambar1.png',
+            'gambar' => 'SistemPencernaan.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Makanan dikunyah di mulut",
@@ -23,13 +23,14 @@ class SoalDragDropSeeder extends Seeder
                 "Sisa makanan dibuang melalui anus"
             ],
             'poin' => 15,
+            'penjelasan' => 'Proses pencernaan dimulai dari mulut, kemudian makanan dicerna secara kimiawi dan mekanis di lambung, dilanjutkan ke usus halus untuk penyerapan nutrisi, dan akhirnya sisa makanan dibuang melalui anus.',
         ]);
 
         SoalDragDrop::create([
             'slug' => 'sistem-pencernaan',
             'nomor' => 7,
             'pertanyaan' => 'Urutkan proses penyerapan sari makanan:',
-            'gambar' => 'gambar2.png',
+            'gambar' => 'UsusHalus.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Sari-sari makanan diserap usus halus",
@@ -38,6 +39,7 @@ class SoalDragDropSeeder extends Seeder
                 "Sisa tidak terserap dibuang"
             ],
             'poin' => 15,
+            'penjelasan' => 'Usus halus menyerap nutrisi dari makanan, yang kemudian dialirkan oleh darah ke seluruh tubuh. Sisa yang tidak diserap akan dibuang melalui usus besar dan anus.',
         ]);
 
         // sistem-pernapasan
@@ -45,7 +47,7 @@ class SoalDragDropSeeder extends Seeder
             'slug' => 'sistem-pernapasan',
             'nomor' => 6,
             'pertanyaan' => 'Urutkan jalur udara saat proses inspirasi:',
-            'gambar' => 'pernapasan1.png',
+            'gambar' => 'Pernapasan.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Udara masuk melalui hidung",
@@ -54,13 +56,14 @@ class SoalDragDropSeeder extends Seeder
                 "Berakhir di alveolus"
             ],
             'poin' => 15,
+            'penjelasan' =>  'Saat bernapas, udara masuk melalui hidung, kemudian melewati faring dan laring, diteruskan ke trakea dan bronkus, dan akhirnya sampai ke alveolus di paru-paru tempat pertukaran gas terjadi.',
         ]);
 
         SoalDragDrop::create([
             'slug' => 'sistem-pernapasan',
             'nomor' => 7,
             'pertanyaan' => 'Urutan proses pertukaran gas di paru-paru:',
-            'gambar' => 'pernapasan2.png',
+            'gambar' => 'Pernapasan1.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Oksigen berdifusi ke darah",
@@ -69,6 +72,7 @@ class SoalDragDropSeeder extends Seeder
                 "Karbon dioksida dikeluarkan saat ekspirasi"
             ],
             'poin' => 15,
+            'penjelasan' => 'Oksigen yang masuk ke alveolus akan berdifusi ke kapiler darah, sedangkan karbon dioksida dari darah akan berpindah ke alveolus. Oksigen kemudian diedarkan ke seluruh tubuh dan karbon dioksida dikeluarkan saat ekspirasi.',
         ]);
 
         // sistem rangka
@@ -76,7 +80,7 @@ class SoalDragDropSeeder extends Seeder
              'slug' => 'sistem-rangka',
             'nomor' => 6,
             'pertanyaan' => 'Urutan proses penyembuhan tulang patah:',
-            'gambar' => 'rangka1.png',
+            'gambar' => 'SistemRangkaManusia.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Terjadi pembengkakan di area patah",
@@ -85,6 +89,7 @@ class SoalDragDropSeeder extends Seeder
                 "Penyambungan tulang secara sempurna"
             ],
             'poin' => 15,
+            'penjelasan' => 'Setelah tulang patah, tubuh merespons dengan pembengkakan dan inflamasi. Kemudian jaringan fibrosa terbentuk untuk menstabilkan area patah. Proses dilanjutkan dengan pembentukan callus (tulang baru) dan akhirnya tulang menyatu secara permanen.',
         ]);
 
         SoalDragDrop::create([
@@ -100,6 +105,7 @@ class SoalDragDropSeeder extends Seeder
                 "Tulang anggota gerak"
             ],
             'poin' => 15,
+            'penjelasan' => 'Susunan sistem rangka dimulai dari tengkorak (melindungi otak), lalu ke tulang belakang sebagai penyangga tubuh, dilanjutkan tulang rusuk yang melindungi organ vital, dan terakhir anggota gerak seperti lengan dan kaki.',
         ]);
 
         // sistem reproduksi
@@ -107,7 +113,7 @@ class SoalDragDropSeeder extends Seeder
             'slug' => 'sistem-reproduksi',
             'nomor' => 6,
             'pertanyaan' => 'Urutan proses terjadinya kehamilan:',
-            'gambar' => 'reproduksi1.png',
+            'gambar' => 'Uterus.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Ovulasi terjadi dan sel telur dilepaskan",
@@ -116,13 +122,14 @@ class SoalDragDropSeeder extends Seeder
                 "Zigot menempel di dinding rahim"
             ],
             'poin' => 15,
+            'penjelasan' => 'Proses kehamilan dimulai dari ovulasi, saat sel telur dilepaskan. Jika bertemu sperma, pembuahan terjadi dan membentuk zigot. Zigot kemudian bergerak ke rahim dan menempel di dinding rahim untuk berkembang.',
         ]);
 
         SoalDragDrop::create([
             'slug' => 'sistem-reproduksi',
             'nomor' => 7,
             'pertanyaan' => 'Urutkan perjalanan sperma saat pembuahan:',
-            'gambar' => 'reproduksi2.png',
+            'gambar' => 'ReproduksiPria.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Diproduksi di testis",
@@ -131,6 +138,7 @@ class SoalDragDropSeeder extends Seeder
                 "Masuk ke vagina dan menuju tuba falopi"
             ],
             'poin' => 15,
+            'penjelasan' => 'Sperma diproduksi di testis, lalu disalurkan melalui vas deferens. Saat ejakulasi, sperma keluar lewat uretra dan masuk ke vagina. Dari situ, sperma bergerak menuju tuba falopi untuk membuahi sel telur.',
         ]);
 
         // sistem otot
@@ -138,7 +146,7 @@ class SoalDragDropSeeder extends Seeder
             'slug' => 'sistem-otot',
             'nomor' => 6,
             'pertanyaan' => 'Urutan kontraksi otot rangka:',
-            'gambar' => 'otot1.png',
+            'gambar' => 'OtotLenganLurus.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Impuls saraf diterima otot",
@@ -147,13 +155,14 @@ class SoalDragDropSeeder extends Seeder
                 "Otot berkontraksi"
             ],
             'poin' => 15,
+            'penjelasan' => 'Saat otot rangka menerima impuls saraf, ion kalsium dilepaskan dari retikulum sarkoplasma. Ion ini memungkinkan aktin dan miosin membentuk ikatan, menghasilkan kontraksi otot.',
         ]);
 
         SoalDragDrop::create([
             'slug' => 'sistem-otot',
             'nomor' => 7,
             'pertanyaan' => 'Urutan proses relaksasi otot:',
-            'gambar' => 'otot2.png',
+            'gambar' => 'OtotLengan.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Impuls berhenti",
@@ -162,6 +171,7 @@ class SoalDragDropSeeder extends Seeder
                 "Otot kembali rileks"
             ],
             'poin' => 15,
+            'penjelasan' => 'Ketika impuls saraf berhenti, ion kalsium dipompa kembali ke retikulum sarkoplasma. Hal ini menyebabkan ikatan aktin dan miosin lepas, sehingga otot berhenti berkontraksi dan kembali rileks.',
         ]);
         
         // sistem saraf
@@ -169,7 +179,7 @@ class SoalDragDropSeeder extends Seeder
             'slug' => 'sistem-saraf',
             'nomor' => 6,
             'pertanyaan' => 'Urutan jalur impuls refleks lutut:',
-            'gambar' => 'saraf1.png',
+            'gambar' => 'SarafLutut.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Rangsangan diterima reseptor",
@@ -178,13 +188,14 @@ class SoalDragDropSeeder extends Seeder
                 "Kaki bergerak secara refleks"
             ],
             'poin' => 15,
+            'penjelasan' => 'Pada refleks lutut, rangsangan dari ketukan diterima oleh reseptor dan impuls langsung dikirim ke sumsum tulang belakang tanpa melalui otak. Dari sana, impuls diteruskan ke otot via saraf motorik, menyebabkan gerakan refleks.',
         ]);
 
         SoalDragDrop::create([
             'slug' => 'sistem-saraf',
             'nomor' => 7,
             'pertanyaan' => 'Urutan pengolahan informasi oleh otak:',
-            'gambar' => 'saraf2.png',
+            'gambar' => 'Otak.png',
             'opsi' => ["A", "B", "C", "D"],
             'urutan' => [
                 "Indra menerima rangsangan",
@@ -193,6 +204,7 @@ class SoalDragDropSeeder extends Seeder
                 "Tanggapan dikirim ke efektor"
             ],
             'poin' => 15,
+            'penjelasan' => 'Indra seperti mata atau kulit menerima rangsangan dan mengubahnya menjadi impuls listrik. Impuls ini dikirim ke otak, diproses, dan kemudian tanggapan dikirim ke efektor (seperti otot) untuk menghasilkan respons.',
         ]);
 
     }

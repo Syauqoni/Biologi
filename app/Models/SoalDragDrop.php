@@ -19,6 +19,7 @@ class SoalDragDrop extends Model
         'opsi',
         'urutan',
         'poin',
+        'penjelasan',
     ];
 
     protected $casts = [

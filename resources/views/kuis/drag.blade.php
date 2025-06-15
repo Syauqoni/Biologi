@@ -113,12 +113,12 @@
 <body>
   <div class="container">
     <div class="image-section">
-      <img src="{{ asset('storage/' . $soal->gambar) }}" alt="Gambar Drag">
+      <img src="{{ asset('images/assetKuis/' . $soal->gambar) }}" alt="Gambar Drag">
     </div>
 
     <div class="question">
       {{ $soal->pertanyaan }}
-      <ol type="a">
+      <ol type="a" >
         @foreach ($soal->urutan as $item)
           <li>{{ $item }}</li>
         @endforeach

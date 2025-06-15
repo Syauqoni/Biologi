@@ -20,7 +20,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Menyerap air dalam usus besar',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Enzim amilase berfungsi untuk memecah karbohidrat kompleks (seperti pati) menjadi gula sederhana (seperti maltosa dan glukosa), dan proses ini dimulai di dalam mulut.',
             ],
+
             [
                 'slug' => 'sistem-pencernaan',
                 'nomor' => 2,
@@ -31,7 +33,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Usus halus',
                 'jawaban' => 'D',
                 'poin' => 10,
+                'penjelasan' => 'Usus halus adalah tempat utama penyerapan nutrisi dari makanan yang telah dicerna, karena memiliki permukaan luas dengan banyak vili yang menyerap zat gizi.',
             ],
+
             [
                 'slug' => 'sistem-pencernaan',
                 'nomor' => 3,
@@ -42,7 +46,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Emulsi',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Peristaltik adalah gerakan otot secara ritmis dan bergelombang yang mendorong makanan melalui saluran pencernaan, mulai dari kerongkongan hingga usus',
             ],
+
             [
                 'slug' => 'sistem-pencernaan',
                 'nomor' => 4,
@@ -53,7 +59,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Insulin',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Empedu diproduksi oleh hati dan disimpan di kantong empedu. Empedu berfungsi untuk mengemulsikan lemak agar lebih mudah dicerna oleh enzim lipase.',
             ],
+
             [
                 'slug' => 'sistem-pencernaan',
                 'nomor' => 5,
@@ -64,6 +72,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Kerongkongan',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Pencernaan kimia pertama kali terjadi di mulut, di mana enzim amilase dalam air liur mulai memecah karbohidrat menjadi gula sederhana.',
             ],
             
             // sistem-pernapasan
@@ -77,7 +86,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Menjaga kelembaban kulit',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Alveolus adalah kantong udara kecil di paru-paru tempat terjadinya pertukaran gas oksigen (O2) dan karbon dioksida (CO2) dengan darah melalui dinding kapiler.',
             ],
+
             [
                 'slug' => 'sistem-pernapasan',
                 'nomor' => 2,
@@ -88,7 +99,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Hidung',
                 'jawaban' => 'A',
                 'poin' => 10,
+                'penjelasan' => 'Bronkus adalah cabang dari trakea yang mengarah ke masing-masing paru-paru. Bronkus membawa udara dari trakea ke paru-paru dan sebaliknya.',
             ],
+
             [
                 'slug' => 'sistem-pernapasan',
                 'nomor' => 3,
@@ -99,7 +112,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Ginjal',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Paru-paru adalah organ utama dalam sistem pernapasan yang menjadi tempat pertukaran udara, yakni pengambilan oksigen dan pembuangan karbon dioksida.',
             ],
+
             [
                 'slug' => 'sistem-pernapasan',
                 'nomor' => 4,
@@ -110,6 +125,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Trakea membesar',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Saat menghembuskan napas, otot diafragma dan otot dada relaksasi sehingga paru-paru menyusut, dan udara kaya karbon dioksida keluar dari tubuh.',
             ],
             [
                 'slug' => 'sistem-pernapasan',
@@ -121,8 +137,8 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Nitrogen',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Nitrogen merupakan gas yang paling banyak dihirup, sekitar 78% dari udara atmosfer. Namun oksigen (sekitar 21%) adalah gas yang digunakan tubuh untuk respirasi.',
             ],
-
 
             // sistem rangka
             [
@@ -135,7 +151,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Menghasilkan energi',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Sistem rangka memberikan bentuk pada tubuh, menopang struktur tubuh, serta melindungi organ-organ vital seperti otak, jantung, dan paru-paru.',
             ],
+
             [
                 'slug' => 'sistem-rangka',
                 'nomor' => 2,
@@ -146,7 +164,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Tulang panggul',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Tulang tengkorak melindungi otak dari benturan dan cedera, serta menjadi tempat menempelnya otot-otot wajah dan kepala.',
             ],
+
             [
                 'slug' => 'sistem-rangka',
                 'nomor' => 3,
@@ -157,7 +177,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Tendon',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Sendi adalah tempat pertemuan dua tulang atau lebih yang memungkinkan terjadinya pergerakan, seperti pada siku dan lutut.',
             ],
+
             [
                 'slug' => 'sistem-rangka',
                 'nomor' => 4,
@@ -168,7 +190,9 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Tulang tidak beraturan',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Tulang panjang memiliki bentuk silindris memanjang dan berfungsi sebagai penopang tubuh serta alat gerak, contohnya tulang paha dan lengan atas.',
             ],
+
             [
                 'slug' => 'sistem-rangka',
                 'nomor' => 5,
@@ -179,6 +203,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Tarsal',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Tulang belakang terdiri dari ruas-ruas tulang yang disebut vertebra. Vertebra berfungsi melindungi sumsum tulang belakang dan menopang tubuh.',
             ],
 
             // sistem reproduksi
@@ -192,6 +217,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Menyaring darah',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Testis berfungsi menghasilkan sel sperma dan hormon testosteron yang penting untuk perkembangan ciri-ciri kelamin sekunder pada pria.',
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -203,6 +229,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Tuba falopi',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Uterus (rahim) adalah tempat di mana janin tumbuh dan berkembang selama kehamilan, dilengkapi dengan dinding yang tebal dan banyak pembuluh darah.'
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -214,6 +241,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Embrio',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Sel kelamin pria disebut sperma, yang diproduksi oleh testis dan berfungsi membuahi sel telur (ovum) dalam proses reproduksi.',
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -225,6 +253,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Implantasi',
                 'jawaban' => 'A',
                 'poin' => 10,
+                'penjelasan' => 'Fertilisasi adalah proses pembuahan, yaitu ketika sel sperma bertemu dan bersatu dengan sel ovum untuk membentuk zigot.',
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -236,6 +265,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Insulin',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Estrogen adalah hormon yang diproduksi oleh ovarium dan berperan penting dalam mengatur siklus menstruasi serta mempersiapkan rahim untuk kehamilan.',
             ],
 
             // sistem otot
@@ -249,6 +279,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Menyaring racun dalam darah',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Sistem otot memungkinkan tubuh untuk bergerak melalui kontraksi otot-otot yang melekat pada rangka.',
             ],
             [
                 'slug' => 'sistem-otot',
@@ -260,6 +291,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Otot antagonis',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Otot polos bekerja secara tidak sadar dan ditemukan di organ-organ dalam seperti usus dan pembuluh darah.',
             ],
             [
                 'slug' => 'sistem-otot',
@@ -271,6 +303,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Menempel pada tulang',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Otot jantung bekerja secara tidak sadar dan terus-menerus tanpa lelah memompa darah ke seluruh tubuh.',
             ],
             [
                 'slug' => 'sistem-otot',
@@ -282,6 +315,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Antagonis',
                 'jawaban' => 'D',
                 'poin' => 10,
+                'penjelasan' => 'Gerak antagonis adalah gerakan berlawanan, seperti antara otot bisep (menekuk) dan trisep (meluruskan).',
             ],
             [
                 'slug' => 'sistem-otot',
@@ -293,6 +327,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Otot halus',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Otot lurik menempel pada tulang dan berfungsi untuk menggerakkan tubuh secara sadar.',
             ],
 
             // sistem saraf 
@@ -306,6 +341,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Memompa darah',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Sistem saraf berfungsi mengatur dan mengoordinasikan seluruh aktivitas tubuh, termasuk gerakan, pikiran, dan respons terhadap rangsangan.',
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -317,6 +353,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Hipotalamus',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Serebelum (otak kecil) bertugas mengatur keseimbangan dan koordinasi otot saat tubuh bergerak.',
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -328,6 +365,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Saraf parasimpatik',
                 'jawaban' => 'B',
                 'poin' => 10,
+                'penjelasan' => 'Saraf sensorik mengirimkan impuls dari reseptor (pancaindra) ke sistem saraf pusat untuk diproses.',
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -339,6 +377,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Gerak aktif',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Gerak refleks adalah respon cepat dan otomatis terhadap rangsangan yang hanya melibatkan sumsum tulang belakang, bukan otak.',
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -350,6 +389,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_d' => 'Sinaps',
                 'jawaban' => 'C',
                 'poin' => 10,
+                'penjelasan' => 'Akson adalah bagian dari neuron yang membawa impuls listrik keluar dari sel menuju neuron lain atau organ target.',
             ],
 
         ];

@@ -8,6 +8,7 @@ use App\Models\SoalPilgan;
 use App\Models\SoalDragDrop;
 use App\Models\SoalBenarSalah;
 
+
 class KuisController extends Controller
 {
     public function index()
@@ -61,7 +62,12 @@ public function jawabPilgan(Request $request, $slug, $index)
     $poin = session()->get('poin', 0);
     \Log::info("Poin sebelum cek jawaban: $poin");
 
+    
     if ($soal && $soal->jawaban === $jawabanUser) {
+
+        session()->put("jawaban_user.pilgan.{$soal->id}", $jawabanUser);
+        \Log::info("Jawaban user disimpan: {$jawabanUser} untuk soal ID {$soal->id}");
+
         $poin += $soal->poin;
         session()->put('poin', $poin);
         \Log::info("Jawaban benar. Poin ditambah jadi: $poin");
@@ -96,6 +102,10 @@ public function jawabDrag(Request $request, $slug, $index)
     $jawabanUserAsli = array_map(function ($item) use ($map) {
         return $map[$item] ?? null;
     }, $jawabanUser);
+
+    session()->put("jawaban_user.drag.{$soal->id}", $jawabanUserAsli);
+    \Log::info("Jawaban user disimpan (drag) untuk ID {$soal->id}: " . json_encode($jawabanUserAsli));
+
 
     // Logging
     \Log::info("Soal $index - Drag:");
@@ -132,6 +142,9 @@ public function jawabDrag(Request $request, $slug, $index)
     \Log::info("Poin sebelum cek jawaban: $poin");
 
     if ($soal) {
+        // ✅ Simpan jawaban user ke session
+        session()->put("jawaban_user.benarsalah.{$soal->id}", $jawabanUser);
+
         if ((string)$soal->jawaban === (string)$jawabanUser) {
             $poin += $soal->poin;
             session()->put('poin', $poin);
@@ -144,7 +157,7 @@ public function jawabDrag(Request $request, $slug, $index)
     }
 
     if ($index >= 10) {
-        \Log::info("TOTAL POIN Benar salah: $poin");
+        \Log::info("TOTAL POIN : $poin");
         return redirect()->route('kuis.hasil', ['slug' => $slug]);
     }
 
@@ -153,25 +166,83 @@ public function jawabDrag(Request $request, $slug, $index)
 
 
 
+
 public function hasil($slug)
 {
     \Log::info("=== Masuk ke method hasil ===");
+
     $totalPoin = session()->get('poin', 0);
+    $jawabanUser = session()->get('jawaban_user', []);
+
+    // Log jawaban user secara keseluruhan
+    \Log::info("Jawaban user lengkap dari session:", $jawabanUser);
 
     if (auth()->check()) {
         $user = auth()->user();
 
-        \Log::info("TOTAL POIN: $totalPoin");
-        \Log::info("SKOR SEBELUM: " . $user->skor);
+        $mapSlugToKolom = [
+            'sistem-pernapasan' => 'skor_pernapasan',
+            'sistem-pencernaan' => 'skor_pencernaan',
+            'sistem-rangka' => 'skor_rangka',
+            'sistem-reproduksi' => 'skor_reproduksi',
+            'sistem-otot' => 'skor_otot',
+            'sistem-saraf' => 'skor_saraf',
+        ];
 
-        $user->skor += $totalPoin;
-        $user->save();
+        $kolom = $mapSlugToKolom[$slug] ?? null;
+
+        if ($kolom) {
+            $skorLama = $user->$kolom;
+            $skorBaru = min(max($skorLama, $totalPoin), 100);
+            $user->$kolom = $skorBaru;
+
+            $user->skor = $user->skor_pernapasan + $user->skor_pencernaan +
+                          $user->skor_rangka + $user->skor_reproduksi +
+                          $user->skor_otot + $user->skor_saraf;
+
+            $user->save();
+
+            \Log::info("Skor per topik [$kolom] diupdate jadi: $skorBaru");
+            \Log::info("Skor total baru: " . $user->skor);
+        } else {
+            \Log::warning("Slug tidak dikenali: $slug");
+        }
+    }
+
+    $pilgan = SoalPilgan::where('slug', $slug)->get()->unique('nomor');
+    $drag = SoalDragDrop::where('slug', $slug)->get();
+    $benarSalah = SoalBenarSalah::where('slug', $slug)->get();
+
+    foreach ($pilgan as $soal) {
+        $jawaban = session("jawaban_user.pilgan.{$soal->id}");
+        $soal->jawaban_user = $jawaban;
+        \Log::info("Jawaban user untuk Pilgan ID {$soal->id}: " . ($jawaban ?? 'Tidak ada'));
+    }
+
+    foreach ($drag as $soal) {
+        $urutan = session("jawaban_user.drag.{$soal->id}", []);
+        $soal->urutan_user = $urutan;
+        \Log::info("Urutan user untuk Drag ID {$soal->id}: " . json_encode($urutan));
+    }
+
+    foreach ($benarSalah as $soal) {
+        $jawaban = session("jawaban_user.benarsalah.{$soal->id}");
+        $soal->jawaban_user = $jawaban;
+        \Log::info("Jawaban user untuk Benar/Salah ID {$soal->id}: " . ($jawaban ?? 'Tidak ada'));
     }
 
     session()->forget('poin');
+    session()->forget('jawaban_user');
 
-    return redirect()->route('leaderboard')->with('success', 'Kuis selesai! Skor Anda: ' . $totalPoin);
+    return view('kuis.hasil', [
+        'slug' => $slug,
+        'totalPoin' => $totalPoin,
+        'pilgan' => $pilgan,
+        'drag' => $drag,
+        'benarSalah' => $benarSalah
+    ]);
 }
+
 
 
 }

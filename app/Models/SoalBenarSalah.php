@@ -16,6 +16,7 @@ class SoalBenarSalah extends Model
         'nomor',
         'pertanyaan',
         'poin',
+        'penjelasan'
     ];
 }
 
