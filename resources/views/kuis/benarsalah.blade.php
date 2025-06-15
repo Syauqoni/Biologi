@@ -8,28 +8,39 @@
     <style>
         body {
             background-color: #f8fbc3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         .card-text {
             background-color: #b8d3a3;
             padding: 30px;
             border-radius: 10px;
             color: #3f5853;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 22px;
         }
+
         .btn-option {
-            width: 150px;
+            width: 160px;
             height: 100px;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             background-color: #bfd9b3;
             color: #3f5853;
             border: none;
-            border-radius: 10px;
-            transition: 0.2s;
+            border-radius: 12px;
+            transition: 0.2s ease-in-out;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
         }
+
         .btn-option:hover {
             background-color: #a4c199;
+            transform: scale(1.05);
+        }
+
+        .btn-option:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(100, 150, 100, 0.4);
         }
     </style>
 </head>
@@ -44,7 +55,7 @@
 
             <form method="POST" action="{{ route('kuis.jawab.benarsalah', ['slug' => $slug, 'index' => $index]) }}">
                 @csrf
-                <div class="d-flex justify-content-center gap-5">
+                <div class="d-flex justify-content-center gap-5 flex-wrap">
                     <button type="submit" name="jawaban" value="1" class="btn-option">BENAR</button>
                     <button type="submit" name="jawaban" value="0" class="btn-option">SALAH</button>
                 </div>

@@ -18,17 +18,25 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      max-width: 800px;
+      margin: auto;
     }
 
     .image-section img {
-      max-width: 300px;
+      max-width: 100%;
       height: auto;
+      border-radius: 12px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
 
     .question {
       margin-top: 20px;
       font-weight: bold;
       text-align: center;
+      background: #fff9c4;
+      padding: 15px;
+      border-radius: 10px;
+      width: 100%;
     }
 
     .options {
@@ -52,6 +60,7 @@
       justify-content: center;
       align-items: center;
       transition: transform 0.2s;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
     }
 
     .option:active {
@@ -80,6 +89,7 @@
       font-weight: bold;
       font-size: 18px;
       border: 2px dashed #fff;
+      transition: background-color 0.3s;
     }
 
     .circle.hovered {
@@ -89,6 +99,7 @@
     .arrow {
       font-size: 24px;
       margin: 0 10px;
+      color: #555;
     }
 
     .btn-next {
@@ -111,6 +122,7 @@
   </style>
 </head>
 <body>
+
   <div class="container">
     <div class="image-section">
       <img src="{{ asset('images/assetKuis/' . $soal->gambar) }}" alt="Gambar Drag">
@@ -118,7 +130,7 @@
 
     <div class="question">
       {{ $soal->pertanyaan }}
-      <ol type="a" >
+      <ol type="a" style="text-align: left; margin-top: 10px;">
         @foreach ($soal->urutan as $item)
           <li>{{ $item }}</li>
         @endforeach
@@ -198,7 +210,6 @@
     }
 
     function submitForm() {
-      // Set nilai input tersembunyi berdasarkan isi lingkaran
       document.querySelectorAll('.circle').forEach((circle, i) => {
         const value = circle.textContent.trim();
         document.getElementById('input-' + (i + 1)).value = value;
@@ -207,5 +218,6 @@
       document.getElementById('dragForm').submit();
     }
   </script>
+
 </body>
 </html>

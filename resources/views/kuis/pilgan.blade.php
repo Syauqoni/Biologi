@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuis: {{ ucfirst(str_replace('-', ' ', $slug)) }}</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #F0F3D1;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
         .soal-box {
             background-color: #A8C49C;
@@ -17,6 +20,15 @@
             margin-bottom: 30px;
             color: #4D6464;
             font-weight: bold;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        .judul-kuis {
+            background-color: #89A98F;
+            color: #22645D;
+            border-radius: 12px;
+            padding: 10px 25px;
+            display: inline-block;
+            font-weight: 600;
         }
         .opsi-container {
             display: flex;
@@ -27,8 +39,20 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            padding: 10px 20px;
+            background: #E8F1D4;
+            border-radius: 12px;
+            transition: transform 0.2s, background 0.3s;
             font-weight: bold;
             color: #4D6464;
+            animation: slideUp 0.4s ease forwards;
+        }
+        .opsi:hover {
+            background-color: #D1E7BD;
+            transform: scale(1.02);
+        }
+        .opsi.aktif {
+            background-color: #B6D7A8;
         }
         .lingkaran {
             width: 30px;
@@ -40,13 +64,6 @@
         }
         .opsi.aktif .lingkaran {
             background-color: #89A98F;
-        }
-        .judul-kuis {
-            background-color: #89A98F;
-            color: #22645D;
-            border-radius: 12px;
-            padding: 10px 25px;
-            display: inline-block;
         }
         .btn-kembali {
             background-color: #BFD8B8;
@@ -64,9 +81,18 @@
         .btn-kembali:hover {
             transform: scale(1.1);
         }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
+
 <div class="container mt-4">
     <a href="{{ url('/kuis') }}" class="btn-kembali mb-4">←</a>
 
@@ -85,9 +111,7 @@
 
             <div class="opsi-container">
                 @foreach (['A', 'B', 'C', 'D'] as $huruf)
-                    @php
-                        $opsi = 'opsi_' . strtolower($huruf);
-                    @endphp
+                    @php $opsi = 'opsi_' . strtolower($huruf); @endphp
                     <div class="opsi" data-jawaban="{{ $huruf }}" onclick="pilihOpsi(this)">
                         <div class="lingkaran"></div>
                         {{ $soal->$opsi }}
@@ -96,7 +120,7 @@
             </div>
 
             <div class="text-end mt-4">
-                <button type="submit" class="btn btn-primary">Selanjutnya</button>
+                <button type="submit" class="btn btn-success px-4 py-2">Selanjutnya</button>
             </div>
         </form>
     @else
@@ -110,10 +134,9 @@
     function pilihOpsi(el) {
         document.querySelectorAll('.opsi').forEach(item => item.classList.remove('aktif'));
         el.classList.add('aktif');
-
-        const jawaban = el.getAttribute('data-jawaban');
-        document.getElementById('inputJawaban').value = jawaban;
+        document.getElementById('inputJawaban').value = el.getAttribute('data-jawaban');
     }
 </script>
+
 </body>
 </html>
