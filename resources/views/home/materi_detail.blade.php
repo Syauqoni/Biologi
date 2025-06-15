@@ -35,7 +35,7 @@
         }
         .materi-image {
             width: 100%;
-            max-height: 400px;
+            max-height: 1100px;
             object-fit: cover;
             border-radius: 15px;
             margin-bottom: 1.5rem;
@@ -72,7 +72,7 @@
         <div class="content-card">
             <h1 class="materi-title text-center mb-4">{{ $materi['judul'] }}</h1>
             
-            <img src="{{ asset('images/materi/' . $materi['gambar_detail']) }}" 
+            <img src="{{ asset('images/AssetMateri/' . $materi['gambar_detail']) }}" 
                  alt="{{ $materi['judul'] }}" 
                  class="materi-image"
                  onerror="this.onerror=null;this.src='https://placehold.co/800x400/BFD8B8/22645D?text=Gambar+Tidak+Tersedia';">

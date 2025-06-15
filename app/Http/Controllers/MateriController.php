@@ -66,7 +66,7 @@ class MateriController extends Controller
                     <h4>Proses Penyerapan Nutrisi:</h4>
                     <p>Setelah sari-sari makanan diserap oleh usus halus, nutrisi tersebut masuk ke dalam aliran darah dan dialirkan ke seluruh tubuh untuk digunakan oleh sel-sel.</p>
                 ",
-                'gambar_detail' => 'detail_pencernaan.jpg'
+                'gambar_detail' => 'MateriSistemPencernaan.jpg'
             ],
             [
                 'gambar' => 'SistemPernapasan.png', 
@@ -89,7 +89,7 @@ class MateriController extends Controller
                         <li><b>Ekspirasi (Menghembuskan):</b> Saat kita menghembuskan napas, diafragma rileks, rongga dada menyusut, dan udara yang kaya <strong>karbon dioksida</strong> (bukan oksigen) didorong keluar.</li>
                     </ul>
                 ",
-                'gambar_detail' => 'detail_pernapasan.jpg'
+                'gambar_detail' => 'MateriSistemPernapasan.jpg'
             ],
             [
                 'gambar' => 'SistemRangka.png', 
@@ -111,7 +111,7 @@ class MateriController extends Controller
                         <li><b>Tulang Belakang:</b> Terdiri dari ruas-ruas tulang yang disebut <strong>vertebra</strong>.</li>
                     </ul>
                 ",
-                'gambar_detail' => 'detail_rangka.jpg'
+                'gambar_detail' => 'MateriSistemRangka.jpg'
             ],
             [
                 'gambar' => 'SistemReproduksi.png', 
@@ -129,7 +129,7 @@ class MateriController extends Controller
                     </ol>
                     <p>Hormon memegang peranan krusial dalam sistem ini. Pada wanita, <strong>estrogen</strong> sangat penting untuk mengatur siklus menstruasi dan perkembangan ciri-ciri seksual sekunder. Pada pria, testosteron berperan dalam produksi sperma.</p>
                 ",
-                'gambar_detail' => 'detail_reproduksi.jpg'
+                'gambar_detail' => 'MateriSistemReproduksi.jpg'
             ],
             [
                 'gambar' => 'SistemOtot.png', 
@@ -146,7 +146,7 @@ class MateriController extends Controller
                     <h4>Cara Kerja Otot:</h4>
                     <p>Otot bekerja secara berpasangan untuk menghasilkan gerakan. Gerakan ini seringkali bersifat <strong>antagonis</strong>, artinya ketika satu otot berkontraksi (memendek), otot pasangannya rileks (memanjang). Contohnya adalah kerja otot bisep dan trisep pada lengan.</p>
                 ",
-                'gambar_detail' => 'detail_otot.jpg'
+                'gambar_detail' => 'MateriSistemOtot.jpg'
             ],
             [
                 'gambar' => 'SistemSaraf.png', 
@@ -166,7 +166,7 @@ class MateriController extends Controller
                         <li><b>Sumsum Tulang Belakang:</b> Menjadi jalur utama untuk sinyal antara otak dan bagian tubuh lainnya, serta menjadi pusat untuk <strong>gerak refleks</strong>. Gerak refleks adalah respons otomatis dan sangat cepat terhadap rangsangan yang terjadi tanpa diproses terlebih dahulu oleh otak, memberikan perlindungan instan.</li>
                     </ul>
                 ",
-                'gambar_detail' => 'detail_saraf.jpg'
+                'gambar_detail' => 'MateriSistemSaraf.jpg'
             ],
         ];
     }
