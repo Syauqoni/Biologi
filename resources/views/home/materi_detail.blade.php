@@ -78,9 +78,8 @@
                  onerror="this.onerror=null;this.src='https://placehold.co/800x400/BFD8B8/22645D?text=Gambar+Tidak+Tersedia';">
             
             <div class="materi-content">
-                <p>
-                    {{ $materi['konten'] }}
-                </p>
+                {{-- [DIPERBAIKI] Menggunakan {!! !!} untuk menampilkan konten sebagai HTML --}}
+                {!! $materi['konten'] !!}
             </div>
             
             <hr class="my-4">
