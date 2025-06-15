@@ -9,9 +9,9 @@ class SoalDragDropSeeder extends Seeder
 {
     public function run()
     {
-        // sistem pernapasan
+        // sistem pencernaan
         SoalDragDrop::create([
-            'slug' => 'sistem-pernapasan',
+            'slug' => 'sistem-pencernaan',
             'nomor' => 6,
             'pertanyaan' => 'Urutkan proses sistem pencernaan makanan:',
             'gambar' => 'gambar1.png',
@@ -22,10 +22,11 @@ class SoalDragDropSeeder extends Seeder
                 "Makanan masuk ke usus halus",
                 "Sisa makanan dibuang melalui anus"
             ],
+            'poin' => 15,
         ]);
 
         SoalDragDrop::create([
-            'slug' => 'sistem-pernapasan',
+            'slug' => 'sistem-pencernaan',
             'nomor' => 7,
             'pertanyaan' => 'Urutkan proses penyerapan sari makanan:',
             'gambar' => 'gambar2.png',
@@ -36,6 +37,7 @@ class SoalDragDropSeeder extends Seeder
                 "Menuju seluruh tubuh",
                 "Sisa tidak terserap dibuang"
             ],
+            'poin' => 15,
         ]);
 
         // sistem-pernapasan
@@ -51,6 +53,7 @@ class SoalDragDropSeeder extends Seeder
                 "Masuk ke trakea dan bronkus",
                 "Berakhir di alveolus"
             ],
+            'poin' => 15,
         ]);
 
         SoalDragDrop::create([
@@ -65,6 +68,7 @@ class SoalDragDropSeeder extends Seeder
                 "Oksigen diedarkan ke seluruh tubuh",
                 "Karbon dioksida dikeluarkan saat ekspirasi"
             ],
+            'poin' => 15,
         ]);
 
         // sistem rangka
@@ -80,6 +84,7 @@ class SoalDragDropSeeder extends Seeder
                 "Pembentukan tulang baru (callus)",
                 "Penyambungan tulang secara sempurna"
             ],
+            'poin' => 15,
         ]);
 
         SoalDragDrop::create([
@@ -94,6 +99,7 @@ class SoalDragDropSeeder extends Seeder
                 "Tulang rusuk",
                 "Tulang anggota gerak"
             ],
+            'poin' => 15,
         ]);
 
         // sistem reproduksi
@@ -109,6 +115,7 @@ class SoalDragDropSeeder extends Seeder
                 "Zigot terbentuk",
                 "Zigot menempel di dinding rahim"
             ],
+            'poin' => 15,
         ]);
 
         SoalDragDrop::create([
@@ -123,6 +130,7 @@ class SoalDragDropSeeder extends Seeder
                 "Keluar melalui uretra",
                 "Masuk ke vagina dan menuju tuba falopi"
             ],
+            'poin' => 15,
         ]);
 
         // sistem otot
@@ -138,6 +146,7 @@ class SoalDragDropSeeder extends Seeder
                 "Aktin dan miosin berikatan",
                 "Otot berkontraksi"
             ],
+            'poin' => 15,
         ]);
 
         SoalDragDrop::create([
@@ -152,6 +161,7 @@ class SoalDragDropSeeder extends Seeder
                 "Ikatan aktin-miosin lepas",
                 "Otot kembali rileks"
             ],
+            'poin' => 15,
         ]);
         
         // sistem saraf
@@ -167,6 +177,7 @@ class SoalDragDropSeeder extends Seeder
                 "Impuls dikirim ke otot melalui saraf motorik",
                 "Kaki bergerak secara refleks"
             ],
+            'poin' => 15,
         ]);
 
         SoalDragDrop::create([
@@ -181,6 +192,7 @@ class SoalDragDropSeeder extends Seeder
                 "Otak memproses informasi",
                 "Tanggapan dikirim ke efektor"
             ],
+            'poin' => 15,
         ]);
 
     }

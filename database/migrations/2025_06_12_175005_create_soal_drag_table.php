@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('gambar')->nullable();
             $table->json('opsi'); // ["A", "B", "C", "D"]
             $table->json('urutan'); // jawaban yang benar, misal: ["Makanan dikunyah...", ...]
+            $table->integer('poin')->default(1); // Langsung ditambah
             $table->timestamps();
         });
     }

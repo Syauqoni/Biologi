@@ -5,24 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SoalDragDrop extends Model
+class SoalBenarSalah extends Model
 {
     use HasFactory;
 
-    protected $table = 'soal_drag';
+    protected $table = 'soal_benar_salah';
 
     protected $fillable = [
         'slug',
         'nomor',
         'pertanyaan',
-        'gambar',
-        'opsi',
-        'urutan',
         'poin',
     ];
-
-    protected $casts = [
-        'opsi' => 'array',
-        'urutan' => 'array',
-    ];
 }
+

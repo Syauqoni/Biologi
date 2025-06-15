@@ -15,6 +15,7 @@
             border-radius: 10px;
             color: #3f5853;
             font-weight: 600;
+            font-size: 20px;
         }
         .btn-option {
             width: 150px;
@@ -38,18 +39,16 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card-text mb-5">
-                Sistem peredaran darah manusia terdiri dari jantung, pembuluh darah, dan darah itu sendiri.
-                Jantung berfungsi sebagai pompa yang mengalirkan darah ke seluruh tubuh melalui pembuluh darah.
-                Salah satu jenis pembuluh darah adalah arteri, yang membawa darah dari jantung ke seluruh tubuh.
-                Sebaliknya, vena membawa darah kembali ke jantung. Dalam sistem ini, darah yang mengandung oksigen
-                diedarkan ke seluruh tubuh, sedangkan darah yang mengandung karbon dioksida dibawa kembali ke
-                paru-paru untuk dikeluarkan.
+                {{ $soal->pertanyaan }}
             </div>
 
-            <div class="d-flex justify-content-center gap-5">
-                <button class="btn-option">BENAR</button>
-                <button class="btn-option">SALAH</button>
-            </div>
+            <form method="POST" action="{{ route('kuis.jawab.benarsalah', ['slug' => $slug, 'index' => $index]) }}">
+                @csrf
+                <div class="d-flex justify-content-center gap-5">
+                    <button type="submit" name="jawaban" value="1" class="btn-option">BENAR</button>
+                    <button type="submit" name="jawaban" value="0" class="btn-option">SALAH</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

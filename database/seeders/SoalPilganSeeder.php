@@ -19,6 +19,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Pertukaran gas antara O2 dan CO2',
                 'opsi_d' => 'Menjaga kelembaban kulit',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pernapasan',
@@ -29,6 +30,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Alveolus',
                 'opsi_d' => 'Hidung',
                 'jawaban' => 'A',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pernapasan',
@@ -39,6 +41,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Jantung',
                 'opsi_d' => 'Ginjal',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pernapasan',
@@ -49,6 +52,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Paru-paru menyusut dan udara keluar',
                 'opsi_d' => 'Trakea membesar',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pernapasan',
@@ -59,6 +63,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Oksigen',
                 'opsi_d' => 'Nitrogen',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
 
             // sistem pencernaan
@@ -71,6 +76,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Mengubah karbohidrat menjadi gula sederhana',
                 'opsi_d' => 'Menyerap air dalam usus besar',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pencernaan',
@@ -81,6 +87,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Usus besar',
                 'opsi_d' => 'Usus halus',
                 'jawaban' => 'D',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pencernaan',
@@ -91,6 +98,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Difusi',
                 'opsi_d' => 'Emulsi',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pencernaan',
@@ -101,6 +109,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Empedu',
                 'opsi_d' => 'Insulin',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-pencernaan',
@@ -111,6 +120,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Usus halus',
                 'opsi_d' => 'Kerongkongan',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
 
             // sistem rangka
@@ -123,6 +133,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Memberi bentuk dan mendukung tubuh',
                 'opsi_d' => 'Menghasilkan energi',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-rangka',
@@ -133,6 +144,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Tulang belakang',
                 'opsi_d' => 'Tulang panggul',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-rangka',
@@ -143,6 +155,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Otot',
                 'opsi_d' => 'Tendon',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-rangka',
@@ -153,6 +166,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Tulang panjang',
                 'opsi_d' => 'Tulang tidak beraturan',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-rangka',
@@ -163,6 +177,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Metakarpal',
                 'opsi_d' => 'Tarsal',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
 
             // sistem reproduksi
@@ -175,6 +190,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Mengatur suhu tubuh',
                 'opsi_d' => 'Menyaring darah',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -185,6 +201,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Uterus',
                 'opsi_d' => 'Tuba falopi',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -195,6 +212,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Zigot',
                 'opsi_d' => 'Embrio',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -205,6 +223,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Menstruasi',
                 'opsi_d' => 'Implantasi',
                 'jawaban' => 'A',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-reproduksi',
@@ -215,6 +234,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Estrogen',
                 'opsi_d' => 'Insulin',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
 
             // sistem otot
@@ -227,6 +247,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Menghasilkan hormon',
                 'opsi_d' => 'Menyaring racun dalam darah',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-otot',
@@ -237,6 +258,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Otot rangka',
                 'opsi_d' => 'Otot antagonis',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-otot',
@@ -247,6 +269,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Bekerja tidak sadar dan tidak cepat lelah',
                 'opsi_d' => 'Menempel pada tulang',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-otot',
@@ -257,6 +280,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Otomatis',
                 'opsi_d' => 'Antagonis',
                 'jawaban' => 'D',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-otot',
@@ -267,6 +291,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Otot jantung',
                 'opsi_d' => 'Otot halus',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
 
             // sistem saraf 
@@ -279,6 +304,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Mengatur dan mengoordinasikan aktivitas tubuh',
                 'opsi_d' => 'Memompa darah',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -289,6 +315,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Serebelum',
                 'opsi_d' => 'Hipotalamus',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -299,6 +326,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Saraf simpatik',
                 'opsi_d' => 'Saraf parasimpatik',
                 'jawaban' => 'B',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -309,6 +337,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Gerak refleks',
                 'opsi_d' => 'Gerak aktif',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
             [
                 'slug' => 'sistem-saraf',
@@ -319,6 +348,7 @@ class SoalPilganSeeder extends Seeder
                 'opsi_c' => 'Akson',
                 'opsi_d' => 'Sinaps',
                 'jawaban' => 'C',
+                'poin' => 10,
             ],
 
         ];

@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('opsi_c');
             $table->string('opsi_d');
             $table->string('jawaban'); // misalnya "A", "B", dsb
+            $table->integer('poin')->default(1); // Langsung ditambah
             $table->timestamps();
         });
     }

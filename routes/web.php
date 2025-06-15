@@ -27,6 +27,15 @@ Route::get('/kuis/{slug}', [KuisController::class, 'mulai'])->name('kuis.show');
 // Soal kuis: index menentukan jenis soal (1–5 pilgan, 6–7 drag, 8–10 benar/salah)
 Route::get('/kuis/{slug}/soal/{index}', [KuisController::class, 'soal'])->name('kuis.soal');
 
+Route::post('/kuis/{slug}/soal/{index}/benarsalah', [KuisController::class, 'jawabBenarSalah'])->name('kuis.jawab.benarsalah');
+
+Route::post('/kuis/{slug}/soal/{index}/drag', [KuisController::class, 'jawabDrag'])->name('kuis.jawab.drag');
+
+Route::get('/kuis/{slug}/hasil', function ($slug) {
+    return redirect()->route('leaderboard');
+})->name('kuis.hasil');
+
+
 Route::get('/materi', function () {
     return view('home.materi');
 });
