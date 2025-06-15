@@ -5,67 +5,100 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
 class AuthController extends Controller
 {
-    // Menampilkan form registrasi
+    /**
+     * Method ini tidak akan terpakai jika registrasi hanya via pop-up.
+     */
     public function showRegister()
     {
         return view('auth.register');
     }
 
-    // Menangani proses registrasi
+    // ==========================================================
+    // METHOD REGISTER INI DIUBAH AGAR BISA BEKERJA DENGAN POP-UP
+    // ==========================================================
     public function register(Request $request)
     {
-        $request->validate([
+        // 1. Validasi input menggunakan Validator
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        User::create([
+        // 2. Jika validasi gagal, kirim response JSON
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
+        }
+
+        // 3. Buat user baru
+        $user = User::create([
             'name' => $request->name,
-            'username' => $request->username, // ✅ penting!
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'skor' => 0,
         ]);
 
-        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
+        // 4. Langsung login-kan user setelah registrasi berhasil
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        // 5. Kirim response JSON sukses dengan URL tujuan
+        return response()->json([
+            'success' => true,
+            'message' => 'Registrasi berhasil!',
+            'redirect' => url('/dashboard')
+        ]);
     }
 
-    // Menampilkan form login
+    /**
+     * Method ini tidak akan terpakai jika login hanya via pop-up.
+     */
     public function showLogin()
     {
         return view('auth.login');
     }
 
-    // Menangani proses login
+    /**
+     * Method login ini sudah disesuaikan untuk pop-up sebelumnya.
+     */
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
         }
 
-        return back()->withErrors([
-            'email' => 'Email atau password salah.',
-        ])->onlyInput('email');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return response()->json(['success' => true, 'redirect' => url('/dashboard')]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'errors' => ['email' => ['Email atau password salah.']]
+        ], 401);
     }
 
-    // Logout
+    /**
+     * Method logout tidak diubah.
+     */
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
     }
 }

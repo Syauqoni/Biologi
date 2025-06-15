@@ -1,159 +1,111 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pilih Topik Kuis</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <style>
+        /* CSS ASLI ANDA UNTUK LAYOUT UTAMA */
         body {
             background-image: linear-gradient(#14792680, #14792680), url('images/background.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
-
         .kuis-box {
-            background-color: #89A98F;
-            color: #4D6464;
-            font-weight: bold;
-            padding: 50px;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
+            background-color: #89A98F; color: #4D6464; font-weight: bold;
+            padding: 50px; border-radius: 12px; text-align: center;
+            transition: 0.3s; cursor: pointer;
             box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
-
         }
-
         .topik-text {
-            background-color: #BFD8B8;
-            border-radius: 10px;
-            padding: 25px;
-            font-size: 16px;
-            margin-top: 10px;
+            background-color: #BFD8B8; border-radius: 10px;
+            padding: 25px; font-size: 16px; margin-top: 10px;
         }
-
         .home-btn {
-            background-color: #BFD8B8;
-            border: none;
-            width: 40px;
-            height: 40px;
-            transition: 0.3s;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
+            background-color: #BFD8B8; border: none;
+            width: 40px; height: 40px; transition: 0.3s;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .kuis-box:hover, .home-btn:hover { transform: scale(1.05); }
 
-        /* Efek hover animasi saat disentuh */
-        .kuis-box:hover,
-        .home-btn:hover {
-            animation: hoverAnimasi 0.3s ease;
-            transform: scale(1.05);
+        /* CSS TAMBAHAN UNTUK STATUS LOGIN */
+        .auth-container {
+            position: absolute; top: 20px; right: 20px;
+            background-color: rgba(0,0,0,0.2); padding: 10px 15px;
+            border-radius: 50px; display: flex; align-items: center;
+            gap: 15px; z-index: 10; color: white;
         }
-
-        @keyframes hoverAnimasi {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.05);
-            }
+        .auth-link {
+            color: white; text-decoration: none; font-weight: 500;
+            padding: 5px 10px; border: 1px solid transparent;
+            border-radius: 20px; transition: all 0.3s ease;
         }
-
-        /* Animasi klik */
-        .animate-click {
-            animation: klikAnimasi 0.3s ease;
-        }
-
-        @keyframes klikAnimasi {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
+        .auth-link:hover { background-color: rgba(255,255,255,0.2); }
+        .welcome-text { font-weight: 500; }
+        .logout-button { background: none; border: none; color: white; opacity: 0.8; transition: opacity 0.3s ease; }
+        .logout-button:hover { opacity: 1; }
     </style>
-
 </head>
-
 <body>
 
     <!-- Tombol Home -->
-    <a href="{{ url('/') }}" class="position-absolute top-0 start-0 m-3" onclick="animateClick(event)">
+    <a href="{{ url('/') }}" class="position-absolute top-0 start-0 m-3">
         <button class="home-btn rounded-circle">
             <i class="bi bi-house-fill fs-5"></i>
         </button>
     </a>
 
+    <!-- [DIPERBAIKI] Status Login/User di Pojok Kanan Atas -->
+    <div class="auth-container">
+        @guest
+            {{-- Tombol ini sekarang mengarah langsung ke Halaman Beranda --}}
+            <a href="{{ url('/') }}" class="auth-link">Login</a>
+            <a href="{{ url('/') }}" class="auth-link fw-bold">Register</a>
+        @endguest
+        @auth
+            <span class="welcome-text d-none d-md-block"><i class="bi bi-person-circle"></i> Halo, {{ Auth::user()->name }}</span>
+            <a href="{{ url('/dashboard') }}" class="auth-link" title="Dashboard"><i class="bi bi-speedometer2"></i></a>
+            <form action="{{ route('logout') }}" method="POST" class="d-flex"> @csrf <button type="submit" class="logout-button" title="Logout"><i class="bi bi-box-arrow-right fs-5"></i></button> </form>
+        @endauth
+    </div>
+
     <div class="container text-center mt-5">
         <div class="mb-4">
-            <h3 class="fw-bold px-4 py-2 d-inline-block"
-                style="background-color: #89A98F; color: #22645D; border-radius: 12px;">
+            <h3 class="fw-bold px-4 py-2 d-inline-block" style="background-color: #89A98F; color: #22645D; border-radius: 12px;">
                 PILIH TOPIK KUIS
             </h3>
         </div>
-
         <div class="row justify-content-center">
-            <!-- Kuis Card -->
-            @php
-                $kuis = [
-                    ['gambar' => 'OrganPencernaan.png', 'judul' => 'KUIS SISTEM PENCERNAAN', 'slug' => 'sistem-pencernaan'],
-                    ['gambar' => 'SistemPernapasan.png', 'judul' => 'KUIS SISTEM PERNAPASAN', 'slug' => 'sistem-pernapasan'],
-                    ['gambar' => 'SistemRangka.png', 'judul' => 'KUIS SISTEM RANGKA', 'slug' => 'sistem-rangka'],
-                    ['gambar' => 'SistemReproduksi.png', 'judul' => 'KUIS SISTEM REPRODUKSI', 'slug' => 'sistem-reproduksi'],
-                    ['gambar' => 'SistemOtot.png', 'judul' => 'KUIS SISTEM OTOT', 'slug' => 'sistem-otot'],
-                    ['gambar' => 'SistemSaraf.png', 'judul' => 'KUIS SISTEM SARAF', 'slug' => 'sistem-saraf'],
-                ];
-            @endphp
-
-            @foreach ($kuis as $item)
+            @forelse ($kuis as $item)
                 <div class="col-6 col-md-4 col-lg-3 mb-4">
-                    <a href="{{ route('kuis.show', ['slug' => $item['slug']]) }}" class="text-decoration-none" onclick="animateClick(event)">
+                    <a href="{{ route('kuis.mulai', ['slug' => $item['slug']]) }}" class="text-decoration-none">
                         <div class="kuis-box">
                             <img src="{{ asset('images/kuis/' . $item['gambar']) }}" alt="{{ $item['judul'] }}"
-                                class="img-fluid mb-2" style="max-height: 150px;">
+                                 class="img-fluid mb-2" style="max-height: 150px;">
                             <div class="topik-text">{{ $item['judul'] }}</div>
                         </div>
                     </a>
                 </div>
-            @endforeach
+            @empty
+                 <div class="col-12 text-center mt-4">
+                    <div class="alert alert-light" style="background-color: rgba(255, 255, 255, 0.85);">
+                        <h4 class="alert-heading">Kuis Belum Tersedia</h4>
+                        <p>Saat ini belum ada topik kuis yang bisa ditampilkan.</p>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JS untuk animasi klik -->
-    <script>
-        function animateClick(event) {
-            event.preventDefault(); // Hindari langsung redirect
-            const el = event.currentTarget;
-            el.classList.add('animate-click');
-
-            // Setelah animasi selesai, baru redirect jika <a href="">
-            setTimeout(() => {
-                el.classList.remove('animate-click');
-                const link = el.getAttribute('href');
-                if (link) {
-                    window.location.href = link;
-                }
-            }, 300);
-        }
-    </script>
 </body>
-
 </html>
