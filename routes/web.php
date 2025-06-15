@@ -22,15 +22,15 @@ Route::get('/kuis', [KuisController::class, 'index'])->name('kuis.index'); // <-
 Route::get('/kuis/{slug}', [KuisController::class, 'mulai'])->name('kuis.mulai'); // Mengganti nama route agar lebih jelas
 Route::get('/kuis/{slug}/soal/{index}', [KuisController::class, 'soal'])->name('kuis.soal');
 // Anda mungkin perlu route untuk 'kuis.hasil' di sini
-// Route::get('/kuis/{slug}/hasil', [KuisController::class, 'hasil'])->name('kuis.hasil');
+Route::get('/kuis/hasil/{slug}', [KuisController::class, 'hasil'])->name('kuis.hasil');
 
+Route::post('/kuis/{slug}/soal/{index}/jawab-pilgan', [KuisController::class, 'jawabPilgan'])->name('kuis.jawab.pilgan');
+Route::post('/kuis/{slug}/soal/{index}/jawab-drag', [KuisController::class, 'jawabDrag'])->name('kuis.jawab.drag');
 Route::post('/kuis/{slug}/soal/{index}/benarsalah', [KuisController::class, 'jawabBenarSalah'])->name('kuis.jawab.benarsalah');
 
-Route::post('/kuis/{slug}/soal/{index}/drag', [KuisController::class, 'jawabDrag'])->name('kuis.jawab.drag');
-
-Route::get('/kuis/{slug}/hasil', function ($slug) {
-    return redirect()->route('leaderboard');
-})->name('kuis.hasil');
+// Route::get('/kuis/{slug}/hasil', function ($slug) {
+//     return redirect()->route('leaderboard');
+// })->name('kuis.hasil.redirect');
 
 
 Route::get('/materi', function () {
@@ -56,3 +56,14 @@ Route::get('/dashboard', function () {
     // Baris ini akan menampilkan file view yang akan kita buat selanjutnya
     return view('home.beranda'); 
 })->name('dashboard')->middleware('auth');
+
+Route::get('/reset-skor', function () {
+    if (auth()->check()) {
+        $user = auth()->user();
+        $user->skor = 0;
+        $user->save();
+        return 'Skor pengguna berhasil direset';
+    }
+    return 'Anda belum login';
+});
+

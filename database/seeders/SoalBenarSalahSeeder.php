@@ -9,29 +9,6 @@ class SoalBenarSalahSeeder extends Seeder
 {
     public function run()
     {
-        // SISTEM PERNAPASAN
-        SoalBenarSalah::create([
-            'slug' => 'sistem-pernapasan',
-            'nomor' => 8,
-            'pertanyaan' => 'Paru-paru kanan terdiri dari tiga lobus.',
-            'jawaban' => true,
-            'poin' => 6,
-        ]);
-        SoalBenarSalah::create([
-            'slug' => 'sistem-pernapasan',
-            'nomor' => 9,
-            'pertanyaan' => 'Oksigen dikeluarkan dari tubuh saat kita menghembuskan napas.',
-            'jawaban' => false,
-            'poin' => 6,
-        ]);
-        SoalBenarSalah::create([
-            'slug' => 'sistem-pernapasan',
-            'nomor' => 10,
-            'pertanyaan' => 'Diafragma berkontraksi saat inspirasi.',
-            'jawaban' => true,
-            'poin' => 7,
-        ]);
-
         // SISTEM PENCERNAAN
         SoalBenarSalah::create([
             'slug' => 'sistem-pencernaan',
@@ -52,8 +29,31 @@ class SoalBenarSalahSeeder extends Seeder
             'nomor' => 10,
             'pertanyaan' => 'Enzim amilase terdapat dalam air liur.',
             'jawaban' => true,
-            'poin' => 7,
+            'poin' => 8,
         ]);
+        // SISTEM PERNAPASAN
+        SoalBenarSalah::create([
+            'slug' => 'sistem-pernapasan',
+            'nomor' => 8,
+            'pertanyaan' => 'Paru-paru kanan terdiri dari tiga lobus.',
+            'jawaban' => true,
+            'poin' => 6,
+        ]);
+        SoalBenarSalah::create([
+            'slug' => 'sistem-pernapasan',
+            'nomor' => 9,
+            'pertanyaan' => 'Oksigen dikeluarkan dari tubuh saat kita menghembuskan napas.',
+            'jawaban' => false,
+            'poin' => 6,
+        ]);
+        SoalBenarSalah::create([
+            'slug' => 'sistem-pernapasan',
+            'nomor' => 10,
+            'pertanyaan' => 'Diafragma berkontraksi saat inspirasi.',
+            'jawaban' => true,
+            'poin' => 8,
+        ]);
+
 
         // SISTEM RANGKA
         SoalBenarSalah::create([
@@ -75,7 +75,7 @@ class SoalBenarSalahSeeder extends Seeder
             'nomor' => 10,
             'pertanyaan' => 'Tulang rawan lebih keras daripada tulang keras.',
             'jawaban' => false,
-            'poin' => 7,
+            'poin' => 8,
         ]);
 
         // SISTEM REPRODUKSI
@@ -98,7 +98,7 @@ class SoalBenarSalahSeeder extends Seeder
             'nomor' => 10,
             'pertanyaan' => 'Zigot terbentuk setelah sperma membuahi sel telur.',
             'jawaban' => true,
-            'poin' => 7,
+            'poin' => 8,
         ]);
 
         // SISTEM OTOT
@@ -121,7 +121,7 @@ class SoalBenarSalahSeeder extends Seeder
             'nomor' => 10,
             'pertanyaan' => 'Otot rangka menempel pada tulang dan menggerakkan tubuh.',
             'jawaban' => true,
-            'poin' => 7,
+            'poin' => 8,
         ]);
 
         // SISTEM SARAF
@@ -144,7 +144,7 @@ class SoalBenarSalahSeeder extends Seeder
             'nomor' => 10,
             'pertanyaan' => 'Neuron motorik membawa impuls dari otak ke otot.',
             'jawaban' => true,
-            'poin' => 7,
+            'poin' => 8,
         ]);
     }
 }

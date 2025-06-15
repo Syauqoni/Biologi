@@ -131,23 +131,26 @@
       @endforeach
     </div>
 
-    <div class="drop-zone">
-      @for ($i = 1; $i <= 4; $i++)
-        <div class="circle" data-index="{{ $i }}" ondragover="event.preventDefault()" ondrop="drop(event)"></div>
-        @if ($i < 4)
-          <div class="arrow">&#8594;</div>
-        @endif
-      @endfor
-    </div>
+    <form id="dragForm" method="POST" action="{{ route('kuis.jawab.drag', [$slug, $index]) }}">
+      @csrf
+      <div class="drop-zone">
+        @for ($i = 1; $i <= 4; $i++)
+          <div class="circle" data-index="{{ $i }}" ondragover="event.preventDefault()" ondrop="drop(event)"></div>
+          <input type="hidden" name="jawaban[]" id="input-{{ $i }}">
+          @if ($i < 4)
+            <div class="arrow">&#8594;</div>
+          @endif
+        @endfor
+      </div>
+    </form>
   </div>
 
-  <button class="btn-next" onclick="goToNext()">Selanjutnya</button>
+  <button class="btn-next" onclick="submitForm()">Selanjutnya</button>
 
   <script>
     const currentSlug = "{{ $slug }}";
     const currentNumber = {{ $index }};
     const lastDragNumber = 7; // Ganti sesuai jumlah soal drag kamu
-
     let dragged;
 
     document.querySelectorAll('.option').forEach(opt => {
@@ -156,7 +159,7 @@
       });
     });
 
-    document.querySelectorAll('.circle').forEach(circle => {
+    document.querySelectorAll('.circle').forEach((circle, idx) => {
       circle.addEventListener('dragover', e => e.preventDefault());
 
       circle.addEventListener('drop', e => {
@@ -194,14 +197,14 @@
       container.appendChild(newOption);
     }
 
-    function goToNext() {
-    const nextNumber = currentNumber + 1;
+    function submitForm() {
+      // Set nilai input tersembunyi berdasarkan isi lingkaran
+      document.querySelectorAll('.circle').forEach((circle, i) => {
+        const value = circle.textContent.trim();
+        document.getElementById('input-' + (i + 1)).value = value;
+      });
 
-    if (nextNumber <= lastDragNumber) {
-        window.location.href = `/kuis/${currentSlug}/soal/${nextNumber}`;
-    } else {
-        window.location.href = `/kuis/${currentSlug}/soal/8`;
-    }
+      document.getElementById('dragForm').submit();
     }
   </script>
 </body>

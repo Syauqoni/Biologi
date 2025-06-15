@@ -79,29 +79,26 @@
             Soal {{ $index }}: {{ $soal->pertanyaan }}
         </div>
 
-        <div class="opsi-container">
-            @foreach (['A', 'B', 'C', 'D'] as $huruf)
-                @php
-                    $opsi = 'opsi_' . strtolower($huruf);
-                @endphp
-                <div class="opsi" onclick="pilihOpsi(this)">
-                    <div class="lingkaran"></div>
-                    {{ $soal->$opsi }}
-                </div>
-            @endforeach
-        </div>
+        <form method="POST" action="{{ route('kuis.jawab.pilgan', ['slug' => $slug, 'index' => $index]) }}">
+            @csrf
+            <input type="hidden" name="jawaban" id="inputJawaban">
 
-        <div class="text-end mt-4">
-            @php
-                $next = $index + 1;
-                $isLast = $index == 10;
-                $url = $isLast ? route('kuis.show', $slug) : route('kuis.soal', ['slug' => $slug, 'index' => $next]);
-            @endphp
+            <div class="opsi-container">
+                @foreach (['A', 'B', 'C', 'D'] as $huruf)
+                    @php
+                        $opsi = 'opsi_' . strtolower($huruf);
+                    @endphp
+                    <div class="opsi" data-jawaban="{{ $huruf }}" onclick="pilihOpsi(this)">
+                        <div class="lingkaran"></div>
+                        {{ $soal->$opsi }}
+                    </div>
+                @endforeach
+            </div>
 
-            <a href="{{ $url }}" class="btn btn-{{ $isLast ? 'success' : 'primary' }}">
-                {{ $isLast ? 'Selesai' : 'Selanjutnya' }}
-            </a>
-        </div>
+            <div class="text-end mt-4">
+                <button type="submit" class="btn btn-primary">Selanjutnya</button>
+            </div>
+        </form>
     @else
         <div class="alert alert-danger text-center">
             Soal tidak ditemukan. Silakan kembali ke halaman kuis.
@@ -113,6 +110,9 @@
     function pilihOpsi(el) {
         document.querySelectorAll('.opsi').forEach(item => item.classList.remove('aktif'));
         el.classList.add('aktif');
+
+        const jawaban = el.getAttribute('data-jawaban');
+        document.getElementById('inputJawaban').value = jawaban;
     }
 </script>
 </body>

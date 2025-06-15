@@ -3,20 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\SoalPilgan;
 use App\Models\SoalDragDrop;
 use App\Models\SoalBenarSalah;
 
-
 class KuisController extends Controller
 {
-    /**
-     * Method BARU untuk menampilkan halaman daftar semua topik kuis.
-     */
     public function index()
     {
-        // Definisikan data kuis di sini.
-        // Nantinya, data ini bisa Anda ambil dari database.
         $dataKuis = [
             ['gambar' => 'OrganPencernaan.png', 'judul' => 'KUIS SISTEM PENCERNAAN', 'slug' => 'sistem-pencernaan'],
             ['gambar' => 'SistemPernapasan.png', 'judul' => 'KUIS SISTEM PERNAPASAN', 'slug' => 'sistem-pernapasan'],
@@ -26,16 +21,11 @@ class KuisController extends Controller
             ['gambar' => 'SistemSaraf.png', 'judul' => 'KUIS SISTEM SARAF', 'slug' => 'sistem-saraf'],
         ];
 
-        // Kirim array di atas ke view 'home.kuis' dengan nama variabel 'kuis'
         return view('home.kuis', ['kuis' => $dataKuis]);
     }
 
-    /**
-     * Method-method di bawah ini sudah ada sebelumnya dan tidak diubah.
-     */
     public function mulai($slug)
     {
-        // Redirect ke soal pertama
         return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => 1]);
     }
 
@@ -43,70 +33,145 @@ class KuisController extends Controller
     {
         if ($index >= 1 && $index <= 5) {
             $soal = SoalPilgan::where('slug', $slug)->where('nomor', $index)->first();
-            if (!$soal) { return redirect('/kuis')->with('error', 'Soal tidak ditemukan.'); }
+            if (!$soal) return redirect('/kuis')->with('error', 'Soal tidak ditemukan.');
             return view('kuis.pilgan', compact('slug', 'index', 'soal'));
-        }
-        elseif ($index >= 6 && $index <= 7) {
+        } elseif ($index >= 6 && $index <= 7) {
             $soal = SoalDragDrop::where('slug', $slug)->where('nomor', $index)->first();
-            if (!$soal) { return redirect('/kuis')->with('error', 'Soal tidak ditemukan.'); }
+            if (!$soal) return redirect('/kuis')->with('error', 'Soal tidak ditemukan.');
             return view('kuis.drag', compact('slug', 'index', 'soal'));
-        }
-        elseif ($index >= 8 && $index <= 10) {
-            $soal = SoalBenarSalah::where('slug', $slug)
-                ->where('nomor', $index)
-                ->first();
-
-            if (!$soal) {
-                return redirect('/kuis')->with('error', 'Soal tidak ditemukan.');
-            }
-
+        } elseif ($index >= 8 && $index <= 10) {
+            $soal = SoalBenarSalah::where('slug', $slug)->where('nomor', $index)->first();
+            if (!$soal) return redirect('/kuis')->with('error', 'Soal tidak ditemukan.');
             return view('kuis.benarsalah', compact('slug', 'index', 'soal'));
-        }
-        else {
+        } else {
             return redirect()->route('kuis.hasil', ['slug' => $slug]);
         }
     }
 
-    public function jawabBenarSalah(Request $request, $slug, $index)
-    {
-        $jawabanUser = $request->input('jawaban'); // 1 = benar, 0 = salah
-        $soal = \App\Models\SoalBenarSalah::where('slug', $slug)->where('nomor', $index)->first();
+public function jawabPilgan(Request $request, $slug, $index)
+{
+    if ($index == 1) {
+        session()->put('poin', 0);
+        \Log::info('Inisialisasi poin: 0');
+    }
 
-        // Ambil poin dari session (jika belum ada, set ke 0)
-        $poin = session()->get('poin', 0);
+    $jawabanUser = $request->input('jawaban');
+    $soal = SoalPilgan::where('slug', $slug)->where('nomor', $index)->first();
 
-        // Tambah poin jika benar
-        if ($soal && $soal->jawaban == $jawabanUser) {
+    $poin = session()->get('poin', 0);
+    \Log::info("Poin sebelum cek jawaban: $poin");
+
+    if ($soal && $soal->jawaban === $jawabanUser) {
+        $poin += $soal->poin;
+        session()->put('poin', $poin);
+        \Log::info("Jawaban benar. Poin ditambah jadi: $poin");
+    } else {
+        \Log::info("Jawaban salah. Poin tetap: $poin");
+    }
+
+    $jumlahSoalPilgan = SoalPilgan::where('slug', $slug)->count();
+
+    if ($index >= $jumlahSoalPilgan) {
+        return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => 6]); // mulai drag
+    }
+
+    return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => $index + 1]);
+}
+
+public function jawabDrag(Request $request, $slug, $index)
+{
+    $jawabanUser = $request->input('jawaban'); // contoh: ["A", "B", "C", "D"]
+    $soal = SoalDragDrop::where('slug', $slug)->where('nomor', $index)->first();
+
+    $poin = session()->get('poin', 0);
+
+    // Cek apakah soal ada
+    if (!$soal) {
+        \Log::warning("Soal Drag ke-$index tidak ditemukan untuk slug: $slug");
+        return redirect()->route('kuis.index')->with('error', 'Soal tidak ditemukan.');
+    }
+
+    // Mapping label A-D ke isi urutan sebenarnya
+    $map = array_combine(['A', 'B', 'C', 'D'], $soal->urutan);
+    $jawabanUserAsli = array_map(function ($item) use ($map) {
+        return $map[$item] ?? null;
+    }, $jawabanUser);
+
+    // Logging
+    \Log::info("Soal $index - Drag:");
+    \Log::info("Jawaban user: " . json_encode($jawabanUser));
+    \Log::info("Jawaban user mapped: " . json_encode($jawabanUserAsli));
+    \Log::info("Jawaban benar: " . json_encode($soal->urutan));
+
+    if ($jawabanUserAsli === $soal->urutan) {
+        $poin += $soal->poin;
+        session()->put('poin', $poin);
+        \Log::info("Jawaban benar. Poin sekarang: $poin");
+    } else {
+        \Log::info("Jawaban salah. Poin tetap: $poin");
+    }
+
+    // Jika drag terakhir, lanjut ke soal benar/salah (8)
+    if ($index >= 7) {
+        return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => 8]);
+    }
+
+    return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => $index + 1]);
+}
+
+ public function jawabBenarSalah(Request $request, $slug, $index)
+{
+    \Log::info("=== Masuk ke method jawabBenarSalah ===");
+
+    $jawabanUser = $request->input('jawaban');
+    \Log::info("Jawaban user: $jawabanUser");
+
+    $soal = SoalBenarSalah::where('slug', $slug)->where('nomor', $index)->first();
+
+    $poin = session()->get('poin', 0);
+    \Log::info("Poin sebelum cek jawaban: $poin");
+
+    if ($soal) {
+        if ((string)$soal->jawaban === (string)$jawabanUser) {
             $poin += $soal->poin;
             session()->put('poin', $poin);
+            \Log::info("Jawaban benar. Poin ditambah jadi: $poin");
+        } else {
+            \Log::info("Jawaban salah. Poin tetap: $poin");
         }
-
-        // Cek apakah sudah soal ke-10 (terakhir)
-        if ($index >= 10) {
-            return redirect()->route('kuis.hasil', ['slug' => $slug]);
-        }
-
-        return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => $index + 1]);
+    } else {
+        \Log::warning("Soal tidak ditemukan untuk slug: $slug dan nomor: $index");
     }
 
-
-    public function hasil($slug)
-    {
-        $totalPoin = session()->get('poin', 0);
-
-            dd($totalPoin);
-
-        // Simpan ke database jika ingin (contoh: User dan skor)
-        if (auth()->check()) {
-            $user = auth()->user();
-            $user->skor += $totalPoin;
-            $user->save();
-        }
-
-        // Kosongkan session poin
-        session()->forget('poin');
-
-        return redirect()->route('leaderboard')->with('success', 'Kuis selesai! Skor Anda: ' . $totalPoin);
-        return view('kuis.hasil', compact('slug'));
+    if ($index >= 10) {
+        \Log::info("TOTAL POIN Benar salah: $poin");
+        return redirect()->route('kuis.hasil', ['slug' => $slug]);
     }
+
+    return redirect()->route('kuis.soal', ['slug' => $slug, 'index' => $index + 1]);
+}
+
+
+
+public function hasil($slug)
+{
+    \Log::info("=== Masuk ke method hasil ===");
+    $totalPoin = session()->get('poin', 0);
+
+    if (auth()->check()) {
+        $user = auth()->user();
+
+        \Log::info("TOTAL POIN: $totalPoin");
+        \Log::info("SKOR SEBELUM: " . $user->skor);
+
+        $user->skor += $totalPoin;
+        $user->save();
+    }
+
+    session()->forget('poin');
+
+    return redirect()->route('leaderboard')->with('success', 'Kuis selesai! Skor Anda: ' . $totalPoin);
+}
+
+
 }
