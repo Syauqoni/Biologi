@@ -186,7 +186,8 @@
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
-              'X-CSRF-TOKEN': data._token
+              'X-CSRF-TOKEN': data._token,
+              'X-Requested-With': 'XMLHttpRequest'
             },
             body: JSON.stringify(data)
           })

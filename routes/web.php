@@ -18,7 +18,7 @@ Route::get('/leaderboard', function () {
 
 
 // Rute Kuis
-Route::get('/kuis', [KuisController::class, 'index'])->name('kuis.index'); // <-- INI YANG DIPERBAIKI
+Route::get('/kuis', [KuisController::class, 'index'])->middleware('auth')->name('kuis.index');; // <-- INI YANG DIPERBAIKI
 Route::get('/kuis/{slug}', [KuisController::class, 'mulai'])->name('kuis.mulai'); // Mengganti nama route agar lebih jelas
 Route::get('/kuis/{slug}/soal/{index}', [KuisController::class, 'soal'])->name('kuis.soal');
 // Anda mungkin perlu route untuk 'kuis.hasil' di sini

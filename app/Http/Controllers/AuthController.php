@@ -82,9 +82,12 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            if ($request->ajax()) {
             return response()->json(['success' => true, 'redirect' => url('/dashboard')]);
         }
-
+        return redirect('/dashboard')->with('success', 'Login berhasil');
+    }
+        
         return response()->json([
             'success' => false,
             'errors' => ['email' => ['Email atau password salah.']]
