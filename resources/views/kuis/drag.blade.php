@@ -145,7 +145,7 @@
 
   <div class="container">
     <div class="image-section">
-      <img src="{{ asset('images/assetKuis/' . $soal->gambar) }}" alt="Gambar Drag">
+      <img src="{{ asset('images/AssetKuis/' . $soal->gambar) }}" alt="Gambar Drag" class="img-fluid mb-2" style="max-height: 200px;">
     </div>
 
     <div class="question">
