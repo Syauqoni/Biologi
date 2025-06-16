@@ -169,7 +169,7 @@ class MateriController extends Controller
                 'gambar_detail' => 'MateriSistemSaraf.jpg'
             ],
             [
-                'gambar' => 'SistemSaraf.png', 
+                'gambar' => 'SistemPeredaranDarah.png', 
                 'judul' => 'SISTEM PEREDARAN DARAH', 
                 'slug' => 'sistem-peredaran-darah',
                 'konten' => "
@@ -188,10 +188,10 @@ class MateriController extends Controller
                         <li>Peredaran kecil: jantung (ventrikel kanan) → arteri pulmonalis → paru-paru → vena pulmonalis → jantung (atrium kiri)</li>
                     </ul>
                 ",
-                'gambar_detail' => 'MateriSistemSaraf.jpg'
+                'gambar_detail' => 'MateriSistemPeredaranDarah.jpg'
             ],
             [
-                'gambar' => 'SistemSaraf.png', 
+                'gambar' => 'SistemEksresi.png', 
                 'judul' => 'SISTEM EKSRESI', 
                 'slug' => 'sistem-eksresi',
                 'konten' => "
@@ -213,10 +213,10 @@ class MateriController extends Controller
                         <li>Augmentasi terjadi sebelum urine dikeluarkan</li>
                     </ul>
                 ",
-                'gambar_detail' => 'MateriSistemSaraf.jpg'
+                'gambar_detail' => 'MateriSistemEksresi.jpg'
             ],
             [
-                'gambar' => 'SistemSaraf.png', 
+                'gambar' => 'SistemEndokrin.png', 
                 'judul' => 'SISTEM ENDOKRIN', 
                 'slug' => 'sistem-endokrin',
                 'konten' => "
@@ -237,7 +237,7 @@ class MateriController extends Controller
                         <li>Saat stress → kelenjar adrenal melepaskan adrenalin → detak jantung dan pernapasan naik</li>
                     </ul>
                 ",
-                'gambar_detail' => 'MateriSistemSaraf.jpg'
+                'gambar_detail' => 'MateriSistemEndokrin.jpg'
             ]
         ];
     }
