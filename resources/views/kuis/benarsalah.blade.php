@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,27 +43,50 @@
             outline: none;
             box-shadow: 0 0 0 4px rgba(100, 150, 100, 0.4);
         }
+
+        .karakter-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            /* Diubah ke kiri */
+            width: 280px;
+            /* Ukuran diperbesar */
+            z-index: 1000;
+            animation: float-in 1s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .karakter-container img {
+            width: 100%;
+            height: auto;
+            opacity: 0.9;
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container text-center mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card-text mb-5">
-                {{ $soal->pertanyaan }}
-            </div>
-
-            <form method="POST" action="{{ route('kuis.jawab.benarsalah', ['slug' => $slug, 'index' => $index]) }}">
-                @csrf
-                <div class="d-flex justify-content-center gap-5 flex-wrap">
-                    <button type="submit" name="jawaban" value="1" class="btn-option">BENAR</button>
-                    <button type="submit" name="jawaban" value="0" class="btn-option">SALAH</button>
+    <div class="container text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card-text mb-5">
+                    {{ $soal->pertanyaan }}
                 </div>
-            </form>
+
+                <form method="POST" action="{{ route('kuis.jawab.benarsalah', ['slug' => $slug, 'index' => $index]) }}">
+                    @csrf
+                    <div class="d-flex justify-content-center gap-5 flex-wrap">
+                        <button type="submit" name="jawaban" value="1" class="btn-option">BENAR</button>
+                        <button type="submit" name="jawaban" value="0" class="btn-option">SALAH</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+    <div class="karakter-container">
+        <img src="{{ asset('images/karakter/KarakterBingung.png') }}" alt="Karakter Bingung">
+    </div>
 
 </body>
+
 </html>

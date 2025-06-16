@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kuis Drag and Drop</title>
   <style>
     body {
@@ -26,7 +27,7 @@
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .question {
@@ -60,7 +61,7 @@
       justify-content: center;
       align-items: center;
       transition: transform 0.2s;
-      box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     }
 
     .option:active {
@@ -113,14 +114,33 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .btn-next:hover {
       background-color: #3e8e41;
     }
+
+    .karakter-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      /* Diubah ke kiri */
+      width: 280px;
+      /* Ukuran diperbesar */
+      z-index: 1000;
+      animation: float-in 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    .karakter-container img {
+      width: 100%;
+      height: auto;
+      opacity: 0.9;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -132,29 +152,32 @@
       {{ $soal->pertanyaan }}
       <ol type="a" style="text-align: left; margin-top: 10px;">
         @foreach ($soal->urutan as $item)
-          <li>{{ $item }}</li>
-        @endforeach
+      <li>{{ $item }}</li>
+    @endforeach
       </ol>
     </div>
 
     <div class="options" id="options">
       @foreach ($soal->opsi as $opsi)
-        <div class="option" draggable="true" data-value="{{ $opsi }}">{{ $opsi }}</div>
-      @endforeach
+      <div class="option" draggable="true" data-value="{{ $opsi }}">{{ $opsi }}</div>
+    @endforeach
     </div>
 
     <form id="dragForm" method="POST" action="{{ route('kuis.jawab.drag', [$slug, $index]) }}">
       @csrf
       <div class="drop-zone">
         @for ($i = 1; $i <= 4; $i++)
-          <div class="circle" data-index="{{ $i }}" ondragover="event.preventDefault()" ondrop="drop(event)"></div>
-          <input type="hidden" name="jawaban[]" id="input-{{ $i }}">
-          @if ($i < 4)
-            <div class="arrow">&#8594;</div>
-          @endif
-        @endfor
+        <div class="circle" data-index="{{ $i }}" ondragover="event.preventDefault()" ondrop="drop(event)"></div>
+        <input type="hidden" name="jawaban[]" id="input-{{ $i }}">
+        @if ($i < 4)
+        <div class="arrow">&#8594;</div>
+      @endif
+    @endfor
       </div>
     </form>
+  </div>
+  <div class="karakter-container">
+    <img src="{{ asset('images/karakter/KarakterBingung.png') }}" alt="Karakter Bingung">
   </div>
 
   <button class="btn-next" onclick="submitForm()">Selanjutnya</button>
@@ -220,4 +243,5 @@
   </script>
 
 </body>
+
 </html>
