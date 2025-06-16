@@ -173,20 +173,35 @@ class MateriController extends Controller
                 'judul' => 'SISTEM PEREDARAN DARAH', 
                 'slug' => 'sistem-peredaran-darah',
                 'konten' => "
-                    Sistem peredaran darah berguna untuk mengangkut oksigen, nutrisi, dan sisa metabolisme, menjaga suhu tubuh, dan melawan penyakit.
-
-                    <h4>Organ dan Komponen</h4>
+                    <p>Sistem peredaran darah manusia berguna untuk <strong>mengirim oksigen, nutrisi, dan zat penting</strong> ke seluruh tubuh, sekaligus <strong>mengangkut zat sisa dan karbon dioksida</strong> untuk dikeluarkan.</p>
+                    <p>Jantung merupakan organ penting peredaran darah, ukuran kira‑kira kepalan tangan. Jantung terbagi menjadi <strong>4 ruang</strong>, yaitu:</p>
                     <ul>
-                        <li>Jantung (memompa darah)</li>
-                        <li>Pembuluh darah (arteri, vena, kapiler)</li>
-                        <li>Darah (sel darah merah, sel darah putih, trombosit)</li>
+                        <li>Atrium kanan</li>
+                        <li>Atrium kiri</li>
+                        <li>Ventrikel kanan</li>
+                        <li>Ventrikel kiri</li>
                     </ul>
 
-                    <h4>Jenis Peredaran</h4>
+                    <h2>Pembuluh darah dibagi menjadi 3:</h2>
                     <ul>
-                        <li>Peredaran besar: jantung (ventrikel kiri) → aorta → tubuh → vena cava → jantung (atrium kanan)</li>
-                        <li>Peredaran kecil: jantung (ventrikel kanan) → arteri pulmonalis → paru-paru → vena pulmonalis → jantung (atrium kiri)</li>
+                        <li><strong>Arteri</strong>: membawa darah keluar dari jantung.</li>
+                        <li><strong>Vena</strong>: membawa darah kembali ke jantung.</li>
+                        <li><strong>Kapiler</strong>: tempat terjadi pertukaran zat.</li>
                     </ul>
+
+                    <h2>Darah manusia terdiri dari:</h2>
+                    <ul>
+                        <li><strong>Eritrosit (sel darah merah)</strong>: Mengangkut oksigen, karena punya Hemoglobin.</li>
+                        <li><strong>Leukosit (sel darah putih)</strong>: Melawan kuman dan menjaga kekebalan tubuh.</li>
+                        <li><strong>Trombosit (keping darah)</strong>: Membantu proses pembekuan darah.</li>
+                        <li><strong>Plasma</strong>: Cairan yang membawa nutrisi dan zat sisa.</li>
+                    </ul>
+
+                    <h2>Peredaran darah manusia dibagi menjadi 2:</h2>
+                    <ol>
+                        <li>Peredaran besar: jantung (ventrikel kiri) → aorta → seluruh tubuh → vena cava → jantung (atrium kanan).</li>
+                        <li>Peredaran kecil: jantung (ventrikel kanan) → arteri pulmonalis → paru-paru → vena pulmonalis → jantung (atrium kiri).</li>
+                    </ol>
                 ",
                 'gambar_detail' => 'MateriSistemPeredaranDarah.jpg'
             ],
@@ -195,23 +210,22 @@ class MateriController extends Controller
                 'judul' => 'SISTEM EKSRESI', 
                 'slug' => 'sistem-eksresi',
                 'konten' => "
-                    Sistem ekskresi berguna untuk mengeluarkan sisa metabolisme, menjaga kadar air dan garam, dan menjaga homeostasis tubuh.
-                    <h4>Organ dan Komponen</h4>
+                    <p>Sistem ekskresi berguna <strong>mengeluarkan zat sisa metabolisme dan racun</strong> dari tubuh.</p>
+                    <h2>Organ ekskresi manusia:</h2>
                     <ul>
-                        <li>Ginjal (menyaring darah dan membentuk urine)</li>
-                        <li>Ureter (mengirim urine dari ginjal ke kandung kemih)</li>
-                        <li>Kandung kemih (menampung urine)</li>
-                        <li>Uretra (saluran pembuangan urine)</li>
-                        <li>Kulit (mengeluarkan keringat)</li>
-                        <li>Paru-paru (mengeluarkan karbon dioksida)</li>
+                        <li><strong>Ginjal</strong>: menyaring darah dan menghasilkan urine.</li>
+                        <li><strong>Kulit</strong>: mengeluarkan keringat, air, dan garam.</li>
+                        <li><strong>Paru-paru</strong>: melepaskan karbon dioksida dan uap air.</li>
+                        <li><strong>Hati</strong>: mengurai sel darah merah dan menghasilkan bilirubin.</li>
                     </ul>
 
-                    <h4>Proses</h4>
-                    <ul>
-                        <li>Filtrasi terjadi di glomerulus</li>
-                        <li>Reabsorpsi terjadi di tubulus</li>
-                        <li>Augmentasi terjadi sebelum urine dikeluarkan</li>
-                    </ul>
+                    <h2>Proses pembentukan urine terjadi di ginjal:</h2>
+                    <ol>
+                        <li>Filtrasi (di glomerulus) → menyaring zat dari darah.</li>
+                        <li>Reabsorpsi (di tubulus) → menyerap kembali zat berguna.</li>
+                        <li>Augmentasi (di tubulus distal) → menambah zat yang tidak dibutuhkan.</li>
+                        <li>Pengeluaran → urine disalurkan ke ureter, lalu ke kandung kemih, kemudian dikeluarkan.</li>
+                    </ol>
                 ",
                 'gambar_detail' => 'MateriSistemEksresi.jpg'
             ],
@@ -220,21 +234,23 @@ class MateriController extends Controller
                 'judul' => 'SISTEM ENDOKRIN', 
                 'slug' => 'sistem-endokrin',
                 'konten' => "
-                    <p>Sistem endokrin berguna sebagai pengirim sinyal (hormon) secara kimiawi dan mengatur proses penting tubuh, seperti metabolisme, pertumbuhan, dan respon stress.</p>
-
-                    <h4>Kelenjar dan Hormon</h4>
+                    <p>Sistem endokrin terdiri dari kelenjar yang melepaskan <strong>hormon</strong>. Hormon berguna sebagai <strong>pembawa pesan (sinyal kimia)</strong> yang menjaga proses tubuh berjalan seimbang (homeostasis).</p>
+                    <h2>Kelenjar penting:</h2>
                     <ul>
-                        <li>Hipofisis (master, mengontrol kelenjar lain)</li>
-                        <li>Tiroid (menghasilkan tiroksin)</li>
-                        <li>Adrenal (menghasilkan adrenalin)</li>
-                        <li>Pankreas (menghasilkan insulin)</li>
-                        <li>Gonad (ovarium, testis; menghasilkan estrogen, progesteron, dan testosteron)</li>
+                        <li><strong>Hipofisis (di otak)</strong>: master of gland, mengontrol kelenjar lain.</li>
+                        <li><strong>Tiroid (di leher)</strong>: mengontrol metabolisme.</li>
+                        <li><strong>Adrenal (di atas ginjal)</strong>: menghasilkan adrenalin, berguna saat stres.</li>
+                        <li><strong>Pankreas</strong>: melepaskan insulin dan glukagon, berguna mengatur gula darah.</li>
+                        <li><strong>Ovarium</strong>: menghasilkan estrogen dan progesteron, berguna pada siklus menstruasi.</li>
+                        <li><strong>Testis</strong>: menghasilkan testosteron, berguna pada perkembangan pria.</li>
                     </ul>
 
-                    <h4>Proses</h4>
+                    <h2>Proses kerja:</h2>
                     <ul>
-                        <li>Glukosa naik → pankreas melepaskan insulin → glukosa disimpan di hati → gula darah turun</li>
-                        <li>Saat stress → kelenjar adrenal melepaskan adrenalin → detak jantung dan pernapasan naik</li>
+                        <li>Bila gula darah naik, <strong>pankreas melepaskan insulin</strong>. Insulin membantu glukosa masuk ke sel, sehingga gula darah turun.</li>
+                        <li>Bila gula darah turun, <strong>glukagon dilepaskan</strong>, melepaskan glukosa dari hati, sehingga gula darah naik.</li>
+                        <li>Adrenalin diproduksi saat stres, <strong>meningkatkan detak jantung dan pernapasan</strong>.</li>
+                        <li>Melatonin dari kelenjar pineal berguna pada <strong>siklus tidur</strong>.</li>
                     </ul>
                 ",
                 'gambar_detail' => 'MateriSistemEndokrin.jpg'

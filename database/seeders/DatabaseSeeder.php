@@ -19,10 +19,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'username' => 'testuser',
             'email' => 'test@example.com',
+            'password' => '1'
         ]);
 
         $this->call([
         SoalPilganSeeder::class,
+        SoalDragDropSeeder::class,
+        SoalBenarSalahSeeder::class
         ]);
     }
 }

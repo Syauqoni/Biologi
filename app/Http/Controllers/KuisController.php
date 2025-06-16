@@ -20,6 +20,9 @@ class KuisController extends Controller
             ['gambar' => 'SistemReproduksi.png', 'judul' => 'KUIS SISTEM REPRODUKSI', 'slug' => 'sistem-reproduksi'],
             ['gambar' => 'SistemOtot.png', 'judul' => 'KUIS SISTEM OTOT', 'slug' => 'sistem-otot'],
             ['gambar' => 'SistemSaraf.png', 'judul' => 'KUIS SISTEM SARAF', 'slug' => 'sistem-saraf'],
+            ['gambar' => 'SistemPeredaranDarah.png', 'judul' => 'KUIS SISTEM PEREDARAN DARAH', 'slug' => 'sistem-peredaran-darah'],
+            ['gambar' => 'SistemEksresi.png', 'judul' => 'KUIS SISTEM EKSRESI', 'slug' => 'sistem-eksresi'],
+            ['gambar' => 'SistemEndokrin.png', 'judul' => 'KUIS SISTEM ENDOKRIN', 'slug' => 'sistem-endokrin']
         ];
 
         return view('home.kuis', ['kuis' => $dataKuis]);
@@ -187,6 +190,9 @@ public function hasil($slug)
             'sistem-reproduksi' => 'skor_reproduksi',
             'sistem-otot' => 'skor_otot',
             'sistem-saraf' => 'skor_saraf',
+            'sistem-peredaran-darah' => 'skor_peredaran_darah',
+            'sistem-eksresi' => 'skor_eksresi',
+            'sistem-endokrin' => 'skor_endokrin'
         ];
 
         $kolom = $mapSlugToKolom[$slug] ?? null;
@@ -198,7 +204,8 @@ public function hasil($slug)
 
             $user->skor = $user->skor_pernapasan + $user->skor_pencernaan +
                           $user->skor_rangka + $user->skor_reproduksi +
-                          $user->skor_otot + $user->skor_saraf;
+                          $user->skor_otot + $user->skor_saraf + $user->skor_peredaran_darah +
+                          $user->skor_eksresi+ $user->skor_endokrin;
 
             $user->save();
 

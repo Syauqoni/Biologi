@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('skor_reproduksi')->default(0);
             $table->integer('skor_otot')->default(0);
             $table->integer('skor_saraf')->default(0);
+            $table->integer('skor_peredaran_darah')->default(0);
+            $table->integer('skor_eksresi')->default(0);
+            $table->integer('skor_endokrin')->default(0);
         });
 
     }
