@@ -168,6 +168,77 @@ class MateriController extends Controller
                 ",
                 'gambar_detail' => 'MateriSistemSaraf.jpg'
             ],
+            [
+                'gambar' => 'SistemSaraf.png', 
+                'judul' => 'SISTEM PEREDARAN DARAH', 
+                'slug' => 'sistem-peredaran-darah',
+                'konten' => "
+                    Sistem peredaran darah berguna untuk mengangkut oksigen, nutrisi, dan sisa metabolisme, menjaga suhu tubuh, dan melawan penyakit.
+
+                    <h4>Organ dan Komponen</h4>
+                    <ul>
+                        <li>Jantung (memompa darah)</li>
+                        <li>Pembuluh darah (arteri, vena, kapiler)</li>
+                        <li>Darah (sel darah merah, sel darah putih, trombosit)</li>
+                    </ul>
+
+                    <h4>Jenis Peredaran</h4>
+                    <ul>
+                        <li>Peredaran besar: jantung (ventrikel kiri) → aorta → tubuh → vena cava → jantung (atrium kanan)</li>
+                        <li>Peredaran kecil: jantung (ventrikel kanan) → arteri pulmonalis → paru-paru → vena pulmonalis → jantung (atrium kiri)</li>
+                    </ul>
+                ",
+                'gambar_detail' => 'MateriSistemSaraf.jpg'
+            ],
+            [
+                'gambar' => 'SistemSaraf.png', 
+                'judul' => 'SISTEM EKSRESI', 
+                'slug' => 'sistem-eksresi',
+                'konten' => "
+                    Sistem ekskresi berguna untuk mengeluarkan sisa metabolisme, menjaga kadar air dan garam, dan menjaga homeostasis tubuh.
+                    <h4>Organ dan Komponen</h4>
+                    <ul>
+                        <li>Ginjal (menyaring darah dan membentuk urine)</li>
+                        <li>Ureter (mengirim urine dari ginjal ke kandung kemih)</li>
+                        <li>Kandung kemih (menampung urine)</li>
+                        <li>Uretra (saluran pembuangan urine)</li>
+                        <li>Kulit (mengeluarkan keringat)</li>
+                        <li>Paru-paru (mengeluarkan karbon dioksida)</li>
+                    </ul>
+
+                    <h4>Proses</h4>
+                    <ul>
+                        <li>Filtrasi terjadi di glomerulus</li>
+                        <li>Reabsorpsi terjadi di tubulus</li>
+                        <li>Augmentasi terjadi sebelum urine dikeluarkan</li>
+                    </ul>
+                ",
+                'gambar_detail' => 'MateriSistemSaraf.jpg'
+            ],
+            [
+                'gambar' => 'SistemSaraf.png', 
+                'judul' => 'SISTEM ENDOKRIN', 
+                'slug' => 'sistem-endokrin',
+                'konten' => "
+                    <p>Sistem endokrin berguna sebagai pengirim sinyal (hormon) secara kimiawi dan mengatur proses penting tubuh, seperti metabolisme, pertumbuhan, dan respon stress.</p>
+
+                    <h4>Kelenjar dan Hormon</h4>
+                    <ul>
+                        <li>Hipofisis (master, mengontrol kelenjar lain)</li>
+                        <li>Tiroid (menghasilkan tiroksin)</li>
+                        <li>Adrenal (menghasilkan adrenalin)</li>
+                        <li>Pankreas (menghasilkan insulin)</li>
+                        <li>Gonad (ovarium, testis; menghasilkan estrogen, progesteron, dan testosteron)</li>
+                    </ul>
+
+                    <h4>Proses</h4>
+                    <ul>
+                        <li>Glukosa naik → pankreas melepaskan insulin → glukosa disimpan di hati → gula darah turun</li>
+                        <li>Saat stress → kelenjar adrenal melepaskan adrenalin → detak jantung dan pernapasan naik</li>
+                    </ul>
+                ",
+                'gambar_detail' => 'MateriSistemSaraf.jpg'
+            ]
         ];
     }
 }
